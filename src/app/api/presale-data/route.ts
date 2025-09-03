@@ -26,7 +26,7 @@ let presaleData = {
   },
   // 공통 정보
   walletAddresses: {
-    tron: 'TAAxiJ4zvWLjusbJjqc6dMuiNKCNuXn1R1',
+    tron: 'THjfMvn8X3aybGmZRQRGyF7TJ4LchFtQ8j',
     bsc: '0xe9e8e63fe2ebaa092bf6149e05431229c04765bf',
     solana: '84Xp2jNM53UQimcEfCwY857kmarFxEKHnxVuDFjgrizD'
   },
