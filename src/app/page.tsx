@@ -2812,18 +2812,16 @@ O true Cypherpunks! The Final Block draweth near—watch and prepare, accumulate
             {/* Popup Image with Overlaid Button */}
             <div className="relative cursor-pointer transform hover:scale-105 transition-transform duration-300 shadow-2xl rounded-2xl overflow-hidden">
               <img
-                src="/uploads/Second-presale-sold-out.png?v=2"
+                src="/Second-presale-sold-out.png?v=3"
                 alt="Satoshi Presale Divine Meme Drop"
                 className="w-full h-auto object-contain"
                 onError={(e) => {
                   const img = e.currentTarget as HTMLImageElement;
-                  // Try alternate public root path for the same sold-out image
-                  if (img.src.includes('/uploads/Second-presale-sold-out')) {
-                    img.src = '/Second-presale-sold-out.png?v=2';
-                  } else if (img.src.includes('/Second-presale-sold-out')) {
-                    img.src = '/uploads/Second-presale-sold-out.png?v=2';
-                  } else {
-                    console.log('Sold-out image not found in either /uploads or root public');
+                  // Try alternate uploads path for the same sold-out image
+                  if (img.src.includes('/Second-presale-sold-out')) {
+                    img.src = '/uploads/Second-presale-sold-out.png?v=3';
+                  } else if (img.src.includes('/uploads/Second-presale-sold-out')) {
+                    img.src = '/Second-presale-sold-out.png?v=3';
                   }
                 }}
               />
