@@ -1271,7 +1271,7 @@ The Eight Blessings from the Sermon on the P2P Mount
                       <h4 className="text-sm font-bold text-white mb-3" style={{fontFamily: 'Montserrat, sans-serif'}}>Wallet Addresses:</h4>
                       <div className="space-y-3">
                         {[
-                          { label: 'TRON', address: 'TAAxiJ4zvWLjusbJjqc6dMuiNKCNuXn1R1' },
+                          { label: 'TRON', address: 'THjfMvn8X3aybGmZRQRGyF7TJ4LchFtQ8j' },
                           { label: 'BSC', address: '0xe9e8e63fe2ebaa092bf6149e05431229c04765bf' },
                           { label: 'SOL', address: '84Xp2jNM53UQimcEfCwY857kmarFxEKHnxVuDFjgrizD' }
                         ].map((wallet) => (
@@ -2690,7 +2690,7 @@ O true Cypherpunks! The Final Block draweth near—watch and prepare, accumulate
 
                 <div className="space-y-2 md:space-y-3">
                   {[
-                    { label: 'TRON', address: 'TAAxiJ4zvWLjusbJjqc6dMuiNKCNuXn1R1' },
+                    { label: 'TRON', address: 'THjfMvn8X3aybGmZRQRGyF7TJ4LchFtQ8j' },
                     { label: 'BSC', address: '0xe9e8e63fe2ebaa092bf6149e05431229c04765bf' },
                     { label: 'SOLANA', address: '84Xp2jNM53UQimcEfCwY857kmarFxEKHnxVuDFjgrizD' }
                   ].map((wallet) => (
