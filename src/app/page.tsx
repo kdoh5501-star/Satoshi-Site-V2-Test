@@ -2812,13 +2812,14 @@ O true Cypherpunks! The Final Block draweth near—watch and prepare, accumulate
             {/* Popup Image with Overlaid Button */}
             <div className="relative cursor-pointer transform hover:scale-105 transition-transform duration-300 shadow-2xl rounded-2xl overflow-hidden">
               <img
-                src="/uploads/Second-presale-sold-out.png"
+                src="/uploads/Second-presale-sold-out.png?v=1"
                 alt="Satoshi Presale Divine Meme Drop"
                 className="w-full h-auto object-contain"
                 onError={(e) => {
-                  console.log('Divine meme popup image failed to load, but keeping popup visible');
-                  // Don't hide the popup, just hide the broken image
-                  e.currentTarget.style.display = 'none';
+                  console.log('Divine meme popup image failed to load');
+                  try {
+                    (e.currentTarget as HTMLImageElement).src = '/uploads/satoshi-presale-divine-meme-drop_V4.png?v=1';
+                  } catch {}
                 }}
               />
 
