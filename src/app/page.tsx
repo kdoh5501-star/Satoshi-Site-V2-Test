@@ -394,6 +394,14 @@ The Eight Blessings from the Sermon on the P2P Mount
     }
   };
 
+  // Auto-open sold-out popup on first load
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setShowDivineMemePopup(true);
+    }, 600);
+    return () => clearTimeout(timer);
+  }, []);
+
   return (
     <div className="min-h-screen bg-gradient-to-b from-amber-50 to-yellow-100 overflow-x-hidden" style={{letterSpacing: '-0.03em', WebkitOverflowScrolling: 'touch'}}>
 
@@ -2804,7 +2812,7 @@ O true Cypherpunks! The Final Block draweth near—watch and prepare, accumulate
             {/* Popup Image with Overlaid Button */}
             <div className="relative cursor-pointer transform hover:scale-105 transition-transform duration-300 shadow-2xl rounded-2xl overflow-hidden">
               <img
-                src="/uploads/satoshi-presale-divine-meme-drop_V4.png"
+                src="/uploads/Second-presale-sold-out.png"
                 alt="Satoshi Presale Divine Meme Drop"
                 className="w-full h-auto object-contain"
                 onError={(e) => {
@@ -2812,13 +2820,9 @@ O true Cypherpunks! The Final Block draweth near—watch and prepare, accumulate
                   // Don't hide the popup, just hide the broken image
                   e.currentTarget.style.display = 'none';
                 }}
-                onClick={() => {
-                  setShowDivineMemePopup(false);
-                  setShowPreSaleModal(true);
-                }}
               />
 
-              {/* Button overlaid on the image - Mobile optimized */}
+              {/* Sold-out popup: no bottom CTA button (hidden)
               <button
                 onClick={() => {
                   setShowDivineMemePopup(false);
@@ -2847,6 +2851,7 @@ O true Cypherpunks! The Final Block draweth near—watch and prepare, accumulate
                   </>
                 )}
               </button>
+              */}
             </div>
           </div>
         </div>
