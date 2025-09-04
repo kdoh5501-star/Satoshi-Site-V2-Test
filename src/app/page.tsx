@@ -1988,7 +1988,7 @@ O true Cypherpunks! The Final Block draweth near—watch and prepare, accumulate
             <div className="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-6 max-w-4xl mx-auto mb-8 md:mb-12">
               {[
                 {
-                  title: "🔥 1st Pre Sale",
+                  title: "🔥 Pre Sale",
                   desc: "Early believers receive the first blessing",
                   action: "Join Pre Sale",
                   icon: "/icons/community/Mask group (7).png",
