@@ -24,7 +24,7 @@ export default function Home() {
     formatCurrency
   } = usePresaleData();
 
-  
+
   const [showChronicleModal, setShowChronicleModal] = useState(false);
   const [selectedChronicle, setSelectedChronicle] = useState<{
     year: string;
@@ -53,6 +53,7 @@ export default function Home() {
   // Airdrop Event Sticker State
   const [showAirdropSticker, setShowAirdropSticker] = useState(true);
   const [showAirdropPopup, setShowAirdropPopup] = useState(false);
+  const [showSatoshiTV, setShowSatoshiTV] = useState(true); // Set to true when videos are ready
 
   // Presale Countdown State
   const [timeLeft, setTimeLeft] = useState({ days: 0, hours: 0, minutes: 0, seconds: 0 });
@@ -60,8 +61,8 @@ export default function Home() {
 
   // Stage 2 States
 
-  const [stage2TimeLeft, setStage2TimeLeft] = useState({ days: 0, hours: 0, minutes: 0, seconds: 0 });
-  const [isStage2Started, setIsStage2Started] = useState(false);
+  const [stage3TimeLeft, setStage3TimeLeft] = useState({ days: 0, hours: 0, minutes: 0, seconds: 0 });
+  const [isStage3Started, setIsStage3Started] = useState(true);
 
   // Presale start time: August 1, 2025, 6:00 PM UTC+9
   const presaleStartTime = React.useMemo(() => new Date('2025-08-01T18:00:00+09:00'), []);
@@ -132,30 +133,30 @@ export default function Home() {
     return () => clearInterval(timer);
   }, [presaleStartTime]);
 
-  // Stage 2 Countdown timer
+  // Stage 3 Countdown timer
   useEffect(() => {
-    const stage2StartTime = new Date('2025-08-13T18:00:00+09:00');
+    const stage3StartTime = new Date('2024-09-11T18:00:00+09:00'); // Demo mode: past date
 
-    const calculateStage2TimeLeft = () => {
+    const calculateStage3TimeLeft = () => {
       const now = new Date();
-      const difference = stage2StartTime.getTime() - now.getTime();
+      const difference = stage3StartTime.getTime() - now.getTime();
 
       if (difference > 0) {
-        setIsStage2Started(false);
-        setStage2TimeLeft({
+        setIsStage3Started(false);
+        setStage3TimeLeft({
           days: Math.floor(difference / (1000 * 60 * 60 * 24)),
           hours: Math.floor((difference / (1000 * 60 * 60)) % 24),
           minutes: Math.floor((difference / 1000 / 60) % 60),
           seconds: Math.floor((difference / 1000) % 60)
         });
       } else {
-        setIsStage2Started(true);
-        setStage2TimeLeft({ days: 0, hours: 0, minutes: 0, seconds: 0 });
+        setIsStage3Started(true);
+        setStage3TimeLeft({ days: 0, hours: 0, minutes: 0, seconds: 0 });
       }
     };
 
-    calculateStage2TimeLeft();
-    const timer = setInterval(calculateStage2TimeLeft, 1000);
+    calculateStage3TimeLeft();
+    const timer = setInterval(calculateStage3TimeLeft, 1000);
 
     return () => clearInterval(timer);
   }, []);
@@ -394,13 +395,13 @@ The Eight Blessings from the Sermon on the P2P Mount
     }
   };
 
-  // Auto-open sold-out popup on first load
-  useEffect(() => {
-    const timer = setTimeout(() => {
-      setShowDivineMemePopup(true);
-    }, 600);
-    return () => clearTimeout(timer);
-  }, []);
+  // Auto-open sold-out popup on first load - DISABLED
+  // useEffect(() => {
+  //   const timer = setTimeout(() => {
+  //     setShowDivineMemePopup(true);
+  //   }, 600);
+  //   return () => clearTimeout(timer);
+  // }, []);
 
   return (
     <div className="min-h-screen bg-gradient-to-b from-amber-50 to-yellow-100 overflow-x-hidden" style={{letterSpacing: '-0.03em', WebkitOverflowScrolling: 'touch'}}>
@@ -721,7 +722,7 @@ The Eight Blessings from the Sermon on the P2P Mount
           </div>
 
           {/* Mobile Text Area - Enhanced */}
-          <div className="flex-1 bg-gradient-to-b from-yellow-900/95 via-amber-800/90 to-yellow-900/95 text-white px-4 py-8 flex items-center justify-center min-h-[45vh]">
+          <div className="flex-1 bg-gradient-to-b from-slate-800/95 to-slate-900/95 text-white px-4 py-8 flex items-center justify-center min-h-[45vh]">
             <div className="text-center w-full max-w-md mx-auto space-y-8">
               {/* Mobile Headline - Improved typography */}
               <div className="space-y-3">
@@ -904,10 +905,10 @@ The Eight Blessings from the Sermon on the P2P Mount
 
 
 
-          {/* 2nd PRESALE Text Overlay - Large screens only */}
+          {/* 3rd PRESALE Text Overlay - Large screens only */}
           <div className="hidden xl:block absolute top-[14%] left-[35%] transform -translate-x-1/2 -translate-y-1/2 z-20">
             <h2 className="text-yellow-400 font-bold text-center" style={{fontFamily: 'Arial Black, Arial, sans-serif', textShadow: '2px 2px 4px rgba(0,0,0,0.8)', letterSpacing: '-0.05em', fontSize: '72px'}}>
-              Second Presale
+              Third Presale
             </h2>
           </div>
 
@@ -930,44 +931,44 @@ The Eight Blessings from the Sermon on the P2P Mount
                   <div className="bg-yellow-400 px-3 py-1 rounded-lg">
                     <span className="font-bold text-black" style={{fontFamily: 'Montserrat, sans-serif'}}>
                       <span className="text-xs">STAGE </span>
-                      <span className="text-sm">2</span>
+                      <span className="text-sm">3</span>
                     </span>
                   </div>
                 </div>
 
                 {/* Mobile Stage 2 Countdown */}
-                {!isStage2Started ? (
+                {!isStage3Started ? (
                   <div className="space-y-4">
                     {/* Stage 2 Countdown Content */}
-                    <h3 className="text-lg font-bold text-yellow-400 mb-3 text-center" style={{fontFamily: 'Montserrat, sans-serif'}}>2ND PRESALE STARTS IN</h3>
+                    <h3 className="text-lg font-bold text-yellow-400 mb-3 text-center" style={{fontFamily: 'Montserrat, sans-serif'}}>3RD PRESALE STARTS IN</h3>
 
                     {/* Countdown Grid */}
                     <div className="grid grid-cols-2 gap-2 mb-4">
                       <div className="bg-yellow-400/20 border border-yellow-400/50 rounded-lg py-3 text-center">
-                        <div className="text-xl font-bold text-yellow-400" style={{fontFamily: 'Montserrat, sans-serif'}}>{stage2TimeLeft.days}</div>
+                        <div className="text-xl font-bold text-yellow-400" style={{fontFamily: 'Montserrat, sans-serif'}}>{stage3TimeLeft.days}</div>
                         <div className="text-xs text-gray-300" style={{fontFamily: 'Montserrat, sans-serif'}}>DAYS</div>
                       </div>
                       <div className="bg-yellow-400/20 border border-yellow-400/50 rounded-lg py-3 text-center">
-                        <div className="text-xl font-bold text-yellow-400" style={{fontFamily: 'Montserrat, sans-serif'}}>{stage2TimeLeft.hours}</div>
+                        <div className="text-xl font-bold text-yellow-400" style={{fontFamily: 'Montserrat, sans-serif'}}>{stage3TimeLeft.hours}</div>
                         <div className="text-xs text-gray-300" style={{fontFamily: 'Montserrat, sans-serif'}}>HOURS</div>
                       </div>
                       <div className="bg-yellow-400/20 border border-yellow-400/50 rounded-lg py-3 text-center">
-                        <div className="text-xl font-bold text-yellow-400" style={{fontFamily: 'Montserrat, sans-serif'}}>{stage2TimeLeft.minutes}</div>
+                        <div className="text-xl font-bold text-yellow-400" style={{fontFamily: 'Montserrat, sans-serif'}}>{stage3TimeLeft.minutes}</div>
                         <div className="text-xs text-gray-300" style={{fontFamily: 'Montserrat, sans-serif'}}>MIN</div>
                       </div>
                       <div className="bg-yellow-400/20 border border-yellow-400/50 rounded-lg py-3 text-center">
-                        <div className="text-xl font-bold text-yellow-400" style={{fontFamily: 'Montserrat, sans-serif'}}>{stage2TimeLeft.seconds}</div>
+                        <div className="text-xl font-bold text-yellow-400" style={{fontFamily: 'Montserrat, sans-serif'}}>{stage3TimeLeft.seconds}</div>
                         <div className="text-xs text-gray-300" style={{fontFamily: 'Montserrat, sans-serif'}}>SEC</div>
                       </div>
                     </div>
 
                     <p className="text-xs text-gray-300 text-center" style={{fontFamily: 'Montserrat, sans-serif'}}>
-                      <span className="font-bold">Start:</span> August 13, 2025 18:00 (UTC+9)
+                      <span className="font-bold">Start:</span> September 11, 2025 18:00 (UTC+9)
                     </p>
 
                     {/* Price Section */}
                     <div className="bg-yellow-400/20 border border-yellow-400/50 rounded-lg px-4 py-3 text-center">
-                      <span className="text-lg font-bold text-yellow-400" style={{fontFamily: 'Montserrat, sans-serif'}}>1 SATOSHI = 0.00008 USDT</span>
+                      <span className="text-lg font-bold text-yellow-400" style={{fontFamily: 'Montserrat, sans-serif'}}>1 SATOSHI = 0.00009 USDT</span>
                     </div>
 
                     {/* Presale Info */}
@@ -984,7 +985,7 @@ The Eight Blessings from the Sermon on the P2P Mount
                         </p>
                       </div>
                       <a
-                        href="mailto:presale@satoshimemes.org?subject=SATOSHI Pre Sale - Stage 2 Interest"
+                        href="mailto:presale@satoshimemes.org?subject=SATOSHI Pre Sale - Interest"
                         className="inline-block bg-gray-600 hover:bg-gray-500 text-white px-4 py-2 rounded-lg font-bold text-sm transition-colors"
                         style={{fontFamily: 'Montserrat, sans-serif'}}
                       >
@@ -996,17 +997,17 @@ The Eight Blessings from the Sermon on the P2P Mount
                 <div className="space-y-4">
                   {/* Price Section */}
                   <div className="bg-yellow-400/20 border border-yellow-400/50 rounded-lg px-4 py-3 text-center">
-                    <span className="text-lg font-bold text-yellow-400" style={{fontFamily: 'Montserrat, sans-serif'}}>1 SATOSHI = 0.00008 USDT</span>
+                    <span className="text-lg font-bold text-yellow-400" style={{fontFamily: 'Montserrat, sans-serif'}}>1 SATOSHI = 0.00009 USDT</span>
                   </div>
 
                   {/* Progress Section */}
                   <div className="grid grid-cols-2 gap-3">
                     <div className="text-center p-3 bg-transparent rounded-lg transform scale-120">
-                      <p className="text-sm font-bold text-green-400 mb-1">$800K / $800K</p>
+                      <p className="text-sm font-bold text-green-400 mb-1">$413.0K / $540K</p>
                       <p className="text-gray-300 text-xs font-bold">USDT RAISED</p>
                     </div>
                     <div className="text-center p-3 bg-transparent rounded-lg transform scale-120">
-                      <p className="text-sm font-bold text-blue-400 mb-1">10.0B / 10.0B</p>
+                      <p className="text-sm font-bold text-blue-400 mb-1">4.6B / 6.0B</p>
                       <p className="text-gray-300 text-xs font-bold">TOKENS SOLD</p>
                     </div>
                   </div>
@@ -1016,7 +1017,7 @@ The Eight Blessings from the Sermon on the P2P Mount
                     <div className="w-full h-10 bg-gray-700 rounded-full overflow-hidden">
                       <div
                         className="h-full bg-yellow-400 rounded-full relative"
-                        style={{width: `100%`}}
+                        style={{width: `76.5%`}}
                       >
                         {/* 불꽃 효과 - 모바일용 */}
                         {progressPercentage > 3 && (
@@ -1033,7 +1034,7 @@ The Eight Blessings from the Sermon on the P2P Mount
                     </div>
                     {/* Percentage text */}
                     <div className="absolute inset-0 flex items-center justify-center">
-                      <span className="font-bold text-xs text-white px-2 py-0.5 rounded-full" style={{fontFamily: 'Montserrat, sans-serif'}}>100%</span>
+                      <span className="font-bold text-xs text-white px-2 py-0.5 rounded-full" style={{fontFamily: 'Montserrat, sans-serif'}}>76.5%</span>
                     </div>
                   </div>
 
@@ -1127,44 +1128,44 @@ The Eight Blessings from the Sermon on the P2P Mount
                   <div className="bg-yellow-400 px-3 py-1 md:px-4 md:py-2 rounded-[25px]">
                     <span className="font-bold text-black" style={{fontFamily: 'Montserrat, sans-serif'}}>
                       <span className="text-xs">STAGE </span>
-                      <span className="text-sm md:text-base">2</span>
+                      <span className="text-sm md:text-base">3</span>
                     </span>
                   </div>
                 </div>
 
                 {/* Desktop Countdown or Presale Content */}
-                {!isStage2Started ? (
+                {!isStage3Started ? (
                   <>
                     {/* Countdown Section */}
                     <div className="text-center mb-4 md:mb-6">
-                      <h3 className="text-lg md:text-xl font-bold text-yellow-400 mb-3 md:mb-4" style={{fontFamily: 'Montserrat, sans-serif'}}>2ND PRESALE STARTS IN</h3>
+                      <h3 className="text-lg md:text-xl font-bold text-yellow-400 mb-3 md:mb-4" style={{fontFamily: 'Montserrat, sans-serif'}}>3RD PRESALE STARTS IN</h3>
                       <div className="grid grid-cols-2 md:grid-cols-4 gap-2 mb-3 md:mb-4">
                         <div className="bg-yellow-400/20 border border-yellow-400/50 rounded-lg py-2 md:py-3">
-                          <div className="text-xl md:text-2xl font-bold text-yellow-400" style={{fontFamily: 'Montserrat, sans-serif'}}>{stage2TimeLeft.days}</div>
+                          <div className="text-xl md:text-2xl font-bold text-yellow-400" style={{fontFamily: 'Montserrat, sans-serif'}}>{stage3TimeLeft.days}</div>
                           <div className="text-xs text-gray-300" style={{fontFamily: 'Montserrat, sans-serif'}}>DAYS</div>
                         </div>
                         <div className="bg-yellow-400/20 border border-yellow-400/50 rounded-lg py-2 md:py-3">
-                          <div className="text-xl md:text-2xl font-bold text-yellow-400" style={{fontFamily: 'Montserrat, sans-serif'}}>{stage2TimeLeft.hours}</div>
+                          <div className="text-xl md:text-2xl font-bold text-yellow-400" style={{fontFamily: 'Montserrat, sans-serif'}}>{stage3TimeLeft.hours}</div>
                           <div className="text-xs text-gray-300" style={{fontFamily: 'Montserrat, sans-serif'}}>HOURS</div>
                         </div>
                         <div className="bg-yellow-400/20 border border-yellow-400/50 rounded-lg py-2 md:py-3">
-                          <div className="text-xl md:text-2xl font-bold text-yellow-400" style={{fontFamily: 'Montserrat, sans-serif'}}>{stage2TimeLeft.minutes}</div>
+                          <div className="text-xl md:text-2xl font-bold text-yellow-400" style={{fontFamily: 'Montserrat, sans-serif'}}>{stage3TimeLeft.minutes}</div>
                           <div className="text-xs text-gray-300" style={{fontFamily: 'Montserrat, sans-serif'}}>MIN</div>
                         </div>
                         <div className="bg-yellow-400/20 border border-yellow-400/50 rounded-lg py-2 md:py-3">
-                          <div className="text-xl md:text-2xl font-bold text-yellow-400" style={{fontFamily: 'Montserrat, sans-serif'}}>{stage2TimeLeft.seconds}</div>
+                          <div className="text-xl md:text-2xl font-bold text-yellow-400" style={{fontFamily: 'Montserrat, sans-serif'}}>{stage3TimeLeft.seconds}</div>
                           <div className="text-xs text-gray-300" style={{fontFamily: 'Montserrat, sans-serif'}}>SEC</div>
                         </div>
                       </div>
                       <p className="text-xs md:text-sm text-gray-300" style={{fontFamily: 'Montserrat, sans-serif'}}>
-                        <span className="font-bold">Start:</span> August 13, 2025 18:00 (UTC+9)
+                        <span className="font-bold">Start:</span> September 11, 2025 18:00 (UTC+9)
                       </p>
                     </div>
 
                     {/* Presale Preview Info */}
                     <div className="mb-4 md:mb-6">
                       <div className="bg-yellow-400/20 border border-yellow-400/50 rounded-lg px-3 py-2 md:px-4 md:py-3 mb-3 text-center">
-                        <span className="text-lg md:text-xl font-bold text-yellow-400" style={{fontFamily: 'Montserrat, sans-serif'}}>1 SATOSHI = 0.00008 USDT</span>
+                        <span className="text-lg md:text-xl font-bold text-yellow-400" style={{fontFamily: 'Montserrat, sans-serif'}}>1 SATOSHI = 0.00009 USDT</span>
                       </div>
                       <div className="text-xs md:text-sm text-gray-300 space-y-1 md:space-y-2" style={{fontFamily: 'Montserrat, sans-serif'}}>
                         <p><span className="font-bold">Minimum Purchase:</span> 1,000,000 SATOSHI</p>
@@ -1180,7 +1181,7 @@ The Eight Blessings from the Sermon on the P2P Mount
                         </p>
                       </div>
                       <a
-                        href="mailto:presale@satoshimemes.org?subject=SATOSHI Pre Sale - Early Interest"
+                        href="mailto:presale@satoshimemes.org?subject=SATOSHI Pre Sale - Interest"
                         className="inline-block bg-gray-600 hover:bg-gray-500 text-white px-4 py-2 md:px-6 md:py-3 rounded-lg font-bold text-xs md:text-sm transition-colors"
                         style={{fontFamily: 'Montserrat, sans-serif'}}
                       >
@@ -1195,7 +1196,7 @@ The Eight Blessings from the Sermon on the P2P Mount
                     {/* Price Section */}
                     <div className="mb-4 text-center">
                       <div className="border border-yellow-400/50 px-4 py-3 mb-3 rounded-[36px] bg-[#FFFFFFff]">
-                        <span className="text-xl font-bold text-black" style={{fontFamily: 'Montserrat, sans-serif'}}>1 SATOSHI = 0.00008 USDT</span>
+                        <span className="text-xl font-bold text-black" style={{fontFamily: 'Montserrat, sans-serif'}}>1 SATOSHI = 0.00009 USDT</span>
                       </div>
                     </div>
 
@@ -1203,11 +1204,11 @@ The Eight Blessings from the Sermon on the P2P Mount
                     <div className="mb-4">
                       <div className="grid grid-cols-2 gap-3 mb-4">
                         <div className="text-center p-3 bg-transparent rounded-[0px] transform scale-120">
-                          <p className="text-sm font-bold text-green-400 2xl:text-[20px] mb-1" style={{fontFamily: 'Montserrat, sans-serif'}}>$800K / $800K</p>
+                          <p className="text-sm font-bold text-green-400 2xl:text-[20px] mb-1" style={{fontFamily: 'Montserrat, sans-serif'}}>$413.0K / $540K</p>
                           <p className="text-gray-300 text-xs font-bold" style={{fontFamily: 'Montserrat, sans-serif'}}>USDT RAISED</p>
                         </div>
                         <div className="text-center p-3 bg-transparent rounded-lg transform scale-120">
-                          <p className="text-sm font-bold mb-1 2xl:text-[20px] text-[#FACC15]" style={{fontFamily: 'Montserrat, sans-serif'}}>10.0B / 10.0B</p>
+                          <p className="text-sm font-bold mb-1 2xl:text-[20px] text-[#FACC15]" style={{fontFamily: 'Montserrat, sans-serif'}}>4.6B / 6.0B</p>
                           <p className="text-gray-300 text-xs font-bold" style={{fontFamily: 'Montserrat, sans-serif'}}>TOKENS SOLD</p>
                         </div>
                       </div>
@@ -1217,7 +1218,7 @@ The Eight Blessings from the Sermon on the P2P Mount
                         <div className="w-full h-10 bg-gray-700 rounded-full overflow-hidden">
                           <div
                             className="h-full bg-yellow-400 rounded-full relative"
-                            style={{width: `100%`}}
+                            style={{width: `76.5%`}}
                           >
                             {/* 불꽃 효과 - 진행률 바 끝에서 */}
                             {progressPercentage > 3 && (
@@ -1244,7 +1245,7 @@ The Eight Blessings from the Sermon on the P2P Mount
                         </div>
                         {/* Percentage text centered over the entire progress bar */}
                         <div className="absolute inset-0 flex items-center justify-center">
-                          <span className="font-bold text-xs text-white px-2 py-0.5 rounded-full 2xl:text-[15px]" style={{fontFamily: 'Montserrat, sans-serif'}}>100%</span>
+                          <span className="font-bold text-xs text-white px-2 py-0.5 rounded-full 2xl:text-[15px]" style={{fontFamily: 'Montserrat, sans-serif'}}>76.5%</span>
                         </div>
 
 
@@ -1254,7 +1255,7 @@ The Eight Blessings from the Sermon on the P2P Mount
                     {/* Presale Info */}
                     <div className="mb-4">
                       <div className="text-sm text-gray-300 space-y-2" style={{fontFamily: 'Montserrat, sans-serif'}}>
-                        <p><span className="font-bold">Period:</span> August 13, 2025, 18:00 (UTC+9) – Until target reached</p>
+                        <p><span className="font-bold">Period:</span> September 11, 2025, 18:00 (UTC+9) – Until target reached</p>
                         <p><span className="font-bold">Minimum Purchase:</span> 1,000,000 SATOSHI</p>
                       </div>
                     </div>
@@ -1279,7 +1280,7 @@ The Eight Blessings from the Sermon on the P2P Mount
                       <h4 className="text-sm font-bold text-white mb-3" style={{fontFamily: 'Montserrat, sans-serif'}}>Wallet Addresses:</h4>
                       <div className="space-y-3">
                         {[
-                          { label: 'TRON', address: 'THjfMvn8X3aybGmZRQRGyF7TJ4LchFtQ8j' },
+                          { label: 'TRON', address: 'TQemDM8YofRpfLuZFXp8C51RpxacaDnPaU' },
                           { label: 'BSC', address: '0xe9e8e63fe2ebaa092bf6149e05431229c04765bf' },
                           { label: 'SOL', address: '84Xp2jNM53UQimcEfCwY857kmarFxEKHnxVuDFjgrizD' }
                         ].map((wallet) => (
@@ -1318,6 +1319,111 @@ The Eight Blessings from the Sermon on the P2P Mount
             </div>
           </div>
         </section>
+      )}
+
+      {/* Satoshi TV Section */}
+      {showSatoshiTV && (
+      <section className="py-16 lg:py-20 bg-gradient-to-b from-gray-900 via-slate-800 to-gray-900 relative overflow-hidden">
+        {/* Background Pattern */}
+        <div className="absolute inset-0 opacity-10">
+          <div className="absolute inset-0 bg-gradient-to-r from-orange-500/20 via-yellow-500/20 to-orange-500/20"></div>
+          <div className="absolute inset-0" style={{
+            backgroundImage: `radial-gradient(circle at 25% 25%, rgba(255, 165, 0, 0.1) 0%, transparent 50%), radial-gradient(circle at 75% 75%, rgba(255, 215, 0, 0.1) 0%, transparent 50%)`
+          }}></div>
+        </div>
+
+        <div className="container mx-auto px-4 relative z-10">
+          {/* Section Header */}
+          <div className="text-center mb-12">
+            <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold bg-gradient-to-r from-orange-400 via-yellow-400 to-orange-500 bg-clip-text text-transparent mb-4">
+              SATOSHI TV
+            </h2>
+            <p className="text-lg md:text-xl text-gray-300 max-w-2xl mx-auto">
+              Experience Satoshi's world through video
+            </p>
+          </div>
+
+          {/* Video Grid */}
+          <div className="flex flex-col lg:flex-row gap-6 lg:gap-8">
+            {/* Main Featured Video (Left) - YouTube Embedded */}
+            <div className="w-full lg:w-1/2">
+              <div className="relative group">
+                <div className="bg-black rounded-2xl overflow-hidden shadow-2xl border border-orange-500/20 hover:border-orange-400/40 transition-all duration-300">
+                  <iframe
+                    className="w-full aspect-video"
+                    src="https://www.youtube.com/embed/y1eclPbAxAg?autoplay=1&mute=1&loop=1&playlist=y1eclPbAxAg&controls=1&showinfo=0&rel=0"
+                    title="Satoshi Meme Featured Video"
+                    frameBorder="0"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                    allowFullScreen
+                  ></iframe>
+                </div>
+              </div>
+            </div>
+
+            {/* Video Cards Grid (Right) - Hidden on mobile */}
+            <div className="hidden lg:block lg:w-1/2">
+              <div className="grid grid-cols-2 gap-4">
+              {/* Video Card 1 */}
+              <div className="relative group">
+                <div className="bg-black rounded-xl overflow-hidden shadow-lg hover:shadow-xl border border-orange-500/20 hover:border-orange-400/50 transition-all duration-300">
+                  <iframe
+                    className="w-full aspect-video"
+                    src="https://www.youtube.com/embed/DK4R9ZwLkss?controls=1&showinfo=0&rel=0"
+                    title="Satoshi Meme Video 1"
+                    frameBorder="0"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                    allowFullScreen
+                  ></iframe>
+                </div>
+              </div>
+
+              {/* Video Card 2 */}
+              <div className="relative group">
+                <div className="bg-black rounded-xl overflow-hidden shadow-lg hover:shadow-xl border border-orange-500/20 hover:border-orange-400/50 transition-all duration-300">
+                  <iframe
+                    className="w-full aspect-video"
+                    src="https://www.youtube.com/embed/QXAv6Flpuj4?controls=1&showinfo=0&rel=0"
+                    title="Satoshi Meme Video 2"
+                    frameBorder="0"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                    allowFullScreen
+                  ></iframe>
+                </div>
+              </div>
+
+              {/* Video Card 3 */}
+              <div className="relative group">
+                <div className="bg-black rounded-xl overflow-hidden shadow-lg hover:shadow-xl border border-orange-500/20 hover:border-orange-400/50 transition-all duration-300">
+                  <iframe
+                    className="w-full aspect-video"
+                    src="https://www.youtube.com/embed/VUV0jDFM7tQ?controls=1&showinfo=0&rel=0"
+                    title="Satoshi Meme Video 3"
+                    frameBorder="0"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                    allowFullScreen
+                  ></iframe>
+                </div>
+              </div>
+
+              {/* Video Card 4 */}
+              <div className="relative group">
+                <div className="bg-black rounded-xl overflow-hidden shadow-lg hover:shadow-xl border border-orange-500/20 hover:border-orange-400/50 transition-all duration-300">
+                  <iframe
+                    className="w-full aspect-video"
+                    src="https://www.youtube.com/embed/gUpP4Iyqa50?controls=1&showinfo=0&rel=0"
+                    title="Satoshi Meme Video 4"
+                    frameBorder="0"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                    allowFullScreen
+                  ></iframe>
+                </div>
+              </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
       )}
 
       {/* Declaration Section */}
@@ -2684,7 +2790,7 @@ O true Cypherpunks! The Final Block draweth near—watch and prepare, accumulate
                 <div className="bg-red-100 rounded-lg p-3 md:p-4 text-red-800">
                   <div className="space-y-2 text-sm md:text-base text-center">
                     <p className="font-semibold">Start: <span className="text-red-600">August 1, 2025</span> | End: <span className="text-red-600">August 7, 2025</span></p>
-                    <p className="font-semibold">Price: <span className="text-red-600">1 SATOSHI = 0.00008 USDT</span></p>
+                    <p className="font-semibold">Price: <span className="text-red-600">1 SATOSHI = 0.00009 USDT</span></p>
                   </div>
                 </div>
               </div>
@@ -2698,7 +2804,7 @@ O true Cypherpunks! The Final Block draweth near—watch and prepare, accumulate
 
                 <div className="space-y-2 md:space-y-3">
                   {[
-                    { label: 'TRON', address: 'THjfMvn8X3aybGmZRQRGyF7TJ4LchFtQ8j' },
+                    { label: 'TRON', address: 'TQemDM8YofRpfLuZFXp8C51RpxacaDnPaU' },
                     { label: 'BSC', address: '0xe9e8e63fe2ebaa092bf6149e05431229c04765bf' },
                     { label: 'SOLANA', address: '84Xp2jNM53UQimcEfCwY857kmarFxEKHnxVuDFjgrizD' }
                   ].map((wallet) => (
@@ -2812,7 +2918,7 @@ O true Cypherpunks! The Final Block draweth near—watch and prepare, accumulate
             {/* Popup Image with Overlaid Button */}
             <div className="relative cursor-pointer transform hover:scale-105 transition-transform duration-300 shadow-2xl rounded-2xl overflow-hidden">
               <img
-                src="/Second-presale-sold-out.png?v=3"
+                src="https://ugc.same-assets.com/e0cf3Kca7wJMomwiZlJOXFgEYzdKtL4C.png"
                 alt="Satoshi Presale Divine Meme Drop"
                 className="w-full h-auto object-contain"
                 onError={(e) => {

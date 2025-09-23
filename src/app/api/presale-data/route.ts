@@ -13,24 +13,24 @@ let presaleData = {
     endDate: '2025-08-07T18:00:00+09:00',
     completed: true
   },
-  // Stage 2 (Second Presale)
+  // Stage 2 (Second Presale) - Updated: $388,462 + $24,511 = $412,973
   stage2: {
-    tokenPrice: 0.00008,
-    raisedAmount: 0,
-    targetAmount: 580000,
-    tokensSold: 0,
-    totalTokens: 7250000000,
+    tokenPrice: 0.00009,
+    raisedAmount: 412973,
+    targetAmount: 540000,
+    tokensSold: 4582377777,
+    totalTokens: 6000000000,
     startDate: '2025-08-13T18:00:00+09:00',
-    endDate: '2025-08-20T18:00:00+09:00',
+    endDate: 'Until fundraising target is reached',
     active: true
   },
   // 공통 정보
   walletAddresses: {
-    tron: 'THjfMvn8X3aybGmZRQRGyF7TJ4LchFtQ8j',
+    tron: 'TQemDM8YofRpfLuZFXp8C51RpxacaDnPaU',
     bsc: '0xe9e8e63fe2ebaa092bf6149e05431229c04765bf',
     solana: '84Xp2jNM53UQimcEfCwY857kmarFxEKHnxVuDFjgrizD'
   },
-  currentStage: 1,
+  currentStage: 2,
   minPurchase: 1000000,
   lastUpdated: new Date().toISOString()
 };
