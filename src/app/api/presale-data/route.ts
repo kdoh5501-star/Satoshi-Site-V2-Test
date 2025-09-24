@@ -13,12 +13,12 @@ let presaleData = {
     endDate: '2025-08-07T18:00:00+09:00',
     completed: true
   },
-  // Stage 2 (Second Presale) - Updated: $388,462 + $24,511 = $412,973
+  // Stage 2 (Second Presale) - Updated: $412,973 + $15,699 = $428,672
   stage2: {
     tokenPrice: 0.00009,
-    raisedAmount: 412973,
+    raisedAmount: 428672,
     targetAmount: 540000,
-    tokensSold: 4582377777,
+    tokensSold: 4756811110,
     totalTokens: 6000000000,
     startDate: '2025-08-13T18:00:00+09:00',
     endDate: 'Until fundraising target is reached',
