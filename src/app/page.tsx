@@ -1003,11 +1003,11 @@ The Eight Blessings from the Sermon on the P2P Mount
                   {/* Progress Section */}
                   <div className="grid grid-cols-2 gap-3">
                     <div className="text-center p-3 bg-transparent rounded-lg transform scale-120">
-                      <p className="text-sm font-bold text-green-400 mb-1">$428.7K / $540K</p>
+                      <p className="text-sm font-bold text-green-400 mb-1">$444.1K / $540K</p>
                       <p className="text-gray-300 text-xs font-bold">USDT RAISED</p>
                     </div>
                     <div className="text-center p-3 bg-transparent rounded-lg transform scale-120">
-                      <p className="text-sm font-bold text-blue-400 mb-1">4.8B / 6.0B</p>
+                      <p className="text-sm font-bold text-blue-400 mb-1">4.9B / 6.0B</p>
                       <p className="text-gray-300 text-xs font-bold">TOKENS SOLD</p>
                     </div>
                   </div>
@@ -1017,7 +1017,7 @@ The Eight Blessings from the Sermon on the P2P Mount
                     <div className="w-full h-10 bg-gray-700 rounded-full overflow-hidden">
                       <div
                         className="h-full bg-yellow-400 rounded-full relative"
-                        style={{width: `79.4%`}}
+                        style={{width: `82.2%`}}
                       >
                         {/* 불꽃 효과 - 모바일용 */}
                         {progressPercentage > 3 && (
@@ -1034,7 +1034,7 @@ The Eight Blessings from the Sermon on the P2P Mount
                     </div>
                     {/* Percentage text */}
                     <div className="absolute inset-0 flex items-center justify-center">
-                      <span className="font-bold text-xs text-white px-2 py-0.5 rounded-full" style={{fontFamily: 'Montserrat, sans-serif'}}>79.4%</span>
+                      <span className="font-bold text-xs text-white px-2 py-0.5 rounded-full" style={{fontFamily: 'Montserrat, sans-serif'}}>82.2%</span>
                     </div>
                   </div>
 
@@ -1204,11 +1204,11 @@ The Eight Blessings from the Sermon on the P2P Mount
                     <div className="mb-4">
                       <div className="grid grid-cols-2 gap-3 mb-4">
                         <div className="text-center p-3 bg-transparent rounded-[0px] transform scale-120">
-                          <p className="text-sm font-bold text-green-400 2xl:text-[20px] mb-1" style={{fontFamily: 'Montserrat, sans-serif'}}>$428.7K / $540K</p>
+                          <p className="text-sm font-bold text-green-400 2xl:text-[20px] mb-1" style={{fontFamily: 'Montserrat, sans-serif'}}>$444.1K / $540K</p>
                           <p className="text-gray-300 text-xs font-bold" style={{fontFamily: 'Montserrat, sans-serif'}}>USDT RAISED</p>
                         </div>
                         <div className="text-center p-3 bg-transparent rounded-lg transform scale-120">
-                          <p className="text-sm font-bold mb-1 2xl:text-[20px] text-[#FACC15]" style={{fontFamily: 'Montserrat, sans-serif'}}>4.8B / 6.0B</p>
+                          <p className="text-sm font-bold mb-1 2xl:text-[20px] text-[#FACC15]" style={{fontFamily: 'Montserrat, sans-serif'}}>4.9B / 6.0B</p>
                           <p className="text-gray-300 text-xs font-bold" style={{fontFamily: 'Montserrat, sans-serif'}}>TOKENS SOLD</p>
                         </div>
                       </div>
@@ -1218,7 +1218,7 @@ The Eight Blessings from the Sermon on the P2P Mount
                         <div className="w-full h-10 bg-gray-700 rounded-full overflow-hidden">
                           <div
                             className="h-full bg-yellow-400 rounded-full relative"
-                            style={{width: `79.4%`}}
+                            style={{width: `82.2%`}}
                           >
                             {/* 불꽃 효과 - 진행률 바 끝에서 */}
                             {progressPercentage > 3 && (
@@ -1245,7 +1245,7 @@ The Eight Blessings from the Sermon on the P2P Mount
                         </div>
                         {/* Percentage text centered over the entire progress bar */}
                         <div className="absolute inset-0 flex items-center justify-center">
-                          <span className="font-bold text-xs text-white px-2 py-0.5 rounded-full 2xl:text-[15px]" style={{fontFamily: 'Montserrat, sans-serif'}}>79.4%</span>
+                          <span className="font-bold text-xs text-white px-2 py-0.5 rounded-full 2xl:text-[15px]" style={{fontFamily: 'Montserrat, sans-serif'}}>82.2%</span>
                         </div>
 
 
