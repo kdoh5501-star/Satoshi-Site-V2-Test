@@ -18,12 +18,12 @@ interface PresaleData {
   lastUpdated: string;
 }
 
-// Default fallback data - Stage 2 Presale (Updated: $468,029 + $31,254 = $499,283)
+// Default fallback data - Stage 2 Presale (Updated: $499,283 + $12,051 = $511,334)
 const defaultData: PresaleData = {
   tokenPrice: 0.00009,
-  raisedAmount: 499283,
+  raisedAmount: 511334,
   targetAmount: 540000,
-  tokensSold: 5541377774,
+  tokensSold: 5675277774,
   totalTokens: 6000000000,
   walletAddresses: {
     tron: 'TAAxiJ4zvWLjusbJjqc6dMuiNKCNuXn1R1',
