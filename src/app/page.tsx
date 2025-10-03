@@ -2077,7 +2077,7 @@ O true Cypherpunks! The Final Block draweth near—watch and prepare, accumulate
                       }}
                       className={`bg-gradient-to-r ${item.color} text-white px-4 md:px-6 py-2 md:py-3 rounded-full font-medium text-sm md:text-base hover:scale-105 transition-transform touch-manipulation w-full md:w-auto shadow-lg hover:shadow-xl`}
                     >
-                      {`🎉 ${item.action} - Completed!`}
+                      {item.action}
                     </button>
                   ) : (
                     <button className={`bg-gradient-to-r ${item.color} text-white px-4 md:px-6 py-2 md:py-3 rounded-full font-medium text-sm md:text-base hover:scale-105 transition-transform touch-manipulation w-full md:w-auto`}>
