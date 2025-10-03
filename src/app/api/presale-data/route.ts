@@ -13,16 +13,17 @@ let presaleData = {
     endDate: '2025-08-07T18:00:00+09:00',
     completed: true
   },
-  // Stage 2 (Second Presale) - Updated: $511,334 + $13,211 = $524,545
+  // Stage 2 (Second Presale) - COMPLETED! SOLD OUT! $540,000 (100%)
   stage2: {
     tokenPrice: 0.00009,
-    raisedAmount: 524545,
+    raisedAmount: 540000,
     targetAmount: 540000,
-    tokensSold: 5828277778,
+    tokensSold: 6000000000,
     totalTokens: 6000000000,
     startDate: '2025-08-13T18:00:00+09:00',
-    endDate: 'Until fundraising target is reached',
-    active: true
+    endDate: '2025-10-02T23:59:59+09:00',
+    active: false,
+    completed: true
   },
   // 공통 정보
   walletAddresses: {
