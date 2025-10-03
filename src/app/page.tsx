@@ -50,8 +50,7 @@ export default function Home() {
   // Divine Meme Drop Popup State
   const [showDivineMemePopup, setShowDivineMemePopup] = useState(false);
 
-  // Airdrop Event Sticker State
-  const [showAirdropSticker, setShowAirdropSticker] = useState(true);
+
   const [showAirdropPopup, setShowAirdropPopup] = useState(false);
   const [showSatoshiTV, setShowSatoshiTV] = useState(true); // Set to true when videos are ready
 
@@ -395,13 +394,13 @@ The Eight Blessings from the Sermon on the P2P Mount
     }
   };
 
-  // Auto-open sold-out popup on first load - DISABLED
-  // useEffect(() => {
-  //   const timer = setTimeout(() => {
-  //     setShowDivineMemePopup(true);
-  //   }, 600);
-  //   return () => clearTimeout(timer);
-  // }, []);
+  // Auto-open SOLD OUT popup on first load - 100% COMPLETE!
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setShowDivineMemePopup(true);
+    }, 600);
+    return () => clearTimeout(timer);
+  }, []);
 
   return (
     <div className="min-h-screen bg-gradient-to-b from-amber-50 to-yellow-100 overflow-x-hidden" style={{letterSpacing: '-0.03em', WebkitOverflowScrolling: 'touch'}}>
@@ -598,58 +597,7 @@ The Eight Blessings from the Sermon on the P2P Mount
 
       {/* Hero Section */}
       <section className="relative bg-gradient-to-r from-yellow-900 via-amber-700 to-yellow-900 min-h-screen flex flex-col text-white overflow-hidden 2xl:py-[0px] 2xl:my-[0px]">
-        {/* Airdrop Event Sticker - Hero Section Only */}
-        {showAirdropSticker && (
-          <div className="absolute top-4 left-8 md:top-8 md:left-16 z-[50] group">
-            {/* Close Button */}
-            <button
-              onClick={() => setShowAirdropSticker(false)}
-              className="absolute -top-3 -right-3 w-8 h-8 bg-red-500 hover:bg-red-600 text-white rounded-full flex items-center justify-center text-lg font-bold z-10 transition-all duration-200 hover:scale-110 touch-manipulation"
-            >
-              ×
-            </button>
 
-            {/* Sticker Image - 2x Size */}
-            <div
-              className="relative w-48 h-48 md:w-64 md:h-64 cursor-pointer transform transition-all duration-300 hover:scale-110 hover:-rotate-3"
-              style={{ background: 'transparent' }}
-              onClick={() => {
-                // Track conversion event
-                if (typeof window !== 'undefined') {
-                  try {
-                    // Type-safe way to call gtag_report_conversion
-                    const gtagFunc = (window as unknown as { gtag_report_conversion?: () => void }).gtag_report_conversion;
-                    if (gtagFunc) {
-                      gtagFunc();
-                    }
-                  } catch (error) {
-                    console.log('Conversion tracking function not available');
-                  }
-                }
-                // Navigate directly to the airdrop page
-                router.push('/airdrop');
-              }}
-            >
-              <img
-                src="/uploads/Airdrop-Event-sticker.png"
-                alt="Airdrop Event - Click to Join!"
-                className="w-full h-full object-contain"
-                style={{ background: 'transparent' }}
-                onError={(e) => {
-                  console.log('Airdrop sticker image failed to load');
-                  e.currentTarget.style.display = 'none';
-                }}
-              />
-
-
-
-              {/* Click hint tooltip */}
-              <div className="absolute bottom-0 left-1/2 transform -translate-x-1/2 translate-y-full bg-black/90 text-white text-sm px-3 py-2 rounded-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300 whitespace-nowrap pointer-events-none">
-                🎁 Click for Airdrop Info!
-              </div>
-            </div>
-          </div>
-        )}
         {/* Desktop Only: Background Video - Full height container */}
         <div className="hidden md:block absolute inset-0 w-full h-full z-0">
           <video
@@ -1058,35 +1006,13 @@ The Eight Blessings from the Sermon on the P2P Mount
                     </div>
                   </div>
 
-                      {/* Wallet Addresses */}
-                      <div>
-                        <h4 className="text-sm font-bold text-white mb-3" style={{fontFamily: 'Montserrat, sans-serif'}}>Wallet Addresses:</h4>
-                        <div className="space-y-2">
-                          {[
-                            { label: 'TRON', address: presaleData.walletAddresses.tron },
-                            { label: 'BSC', address: presaleData.walletAddresses.bsc },
-                            { label: 'SOL', address: presaleData.walletAddresses.solana }
-                          ].map((wallet) => (
-                            <div key={wallet.label} className="bg-gray-700/50 rounded p-2">
-                              <p className="text-xs font-bold text-gray-300 mb-1">{wallet.label}:</p>
-                              <div className="flex items-center gap-2">
-                                <div className="flex-1 bg-gray-600 rounded px-2 py-1 text-xs text-gray-200 font-mono break-all">
-                                  {wallet.address}
-                                </div>
-                                <button
-                                  onClick={() => copyToClipboard(wallet.address, wallet.label)}
-                                  className={`px-2 py-1 rounded text-xs font-medium transition-colors ${
-                                    copiedAddress === wallet.label
-                                      ? 'bg-green-500 text-white'
-                                      : 'bg-blue-500 hover:bg-blue-600 text-white'
-                                  }`}
-                                >
-                                  {copiedAddress === wallet.label ? '✓' : 'Copy'}
-                                </button>
-                              </div>
-                            </div>
-                          ))}
-                        </div>
+                      {/* PRESALE COMPLETED - Wallet Addresses Hidden */}
+                      <div className="bg-gradient-to-r from-green-600 to-emerald-600 rounded-lg p-4 text-center">
+                        <h4 className="text-lg font-bold text-white mb-2" style={{fontFamily: 'Montserrat, sans-serif'}}>🎉 PRESALE COMPLETED! 🎉</h4>
+                        <p className="text-sm text-green-100" style={{fontFamily: 'Montserrat, sans-serif'}}>
+                          Thank you for your participation!<br/>
+                          100% SOLD OUT - $540,000 Target Achieved!
+                        </p>
                       </div>
 
                   {/* Contact */}
@@ -1275,32 +1201,19 @@ The Eight Blessings from the Sermon on the P2P Mount
                       </div>
                     </div>
 
-                    {/* Wallet Addresses */}
+                    {/* PRESALE COMPLETED - Wallet Addresses Hidden */}
                     <div className="mb-4">
-                      <h4 className="text-sm font-bold text-white mb-3" style={{fontFamily: 'Montserrat, sans-serif'}}>Wallet Addresses:</h4>
-                      <div className="space-y-3">
-                        {[
-                          { label: 'TRON', address: 'TQemDM8YofRpfLuZFXp8C51RpxacaDnPaU' },
-                          { label: 'BSC', address: '0xe9e8e63fe2ebaa092bf6149e05431229c04765bf' },
-                          { label: 'SOL', address: '84Xp2jNM53UQimcEfCwY857kmarFxEKHnxVuDFjgrizD' }
-                        ].map((wallet) => (
-                          <div key={wallet.label} className="flex items-center">
-                            <span className="text-xs font-bold text-gray-300 w-12">{wallet.label}:</span>
-                            <div className="flex-1 bg-gray-700 rounded px-3 py-2 text-xs text-gray-200 font-mono">
-                              {wallet.address}
-                            </div>
-                            <button
-                              onClick={() => copyToClipboard(wallet.address, wallet.label)}
-                              className={`px-3 py-2 rounded text-xs font-medium transition-colors ${
-                                copiedAddress === wallet.label
-                                  ? 'bg-green-500 text-white'
-                                  : 'bg-blue-500 hover:bg-blue-600 text-white'
-                              }`}
-                            >
-                              {copiedAddress === wallet.label ? '✓' : 'Copy'}
-                            </button>
-                          </div>
-                        ))}
+                      <div className="bg-gradient-to-r from-green-600 to-emerald-600 rounded-lg p-6 text-center">
+                        <h4 className="text-xl font-bold text-white mb-3" style={{fontFamily: 'Montserrat, sans-serif'}}>🎉 PRESALE COMPLETED! 🎉</h4>
+                        <p className="text-base text-green-100 mb-2" style={{fontFamily: 'Montserrat, sans-serif'}}>
+                          Thank you for your incredible support!
+                        </p>
+                        <p className="text-lg font-bold text-yellow-300" style={{fontFamily: 'Montserrat, sans-serif'}}>
+                          100% SOLD OUT - $540,000 Target Achieved!
+                        </p>
+                        <p className="text-sm text-green-100 mt-2" style={{fontFamily: 'Montserrat, sans-serif'}}>
+                          🚀 Get ready for the next phase! 🚀
+                        </p>
                       </div>
                     </div>
 
@@ -2094,9 +2007,9 @@ O true Cypherpunks! The Final Block draweth near—watch and prepare, accumulate
             <div className="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-6 max-w-4xl mx-auto mb-8 md:mb-12">
               {[
                 {
-                  title: "🔥 Pre Sale",
+                  title: "🚀 Launchpad",
                   desc: "Early believers receive the first blessing",
-                  action: "Join Pre Sale",
+                  action: "Join Launchpad",
                   icon: "/icons/community/Mask group (7).png",
                   color: "from-red-500 to-orange-600",
                   isPreSale: true
@@ -2156,7 +2069,7 @@ O true Cypherpunks! The Final Block draweth near—watch and prepare, accumulate
                   ) : item.isPreSale ? (
                     <button
                       onClick={() => {
-                        // Always scroll to presale section
+                        // Always scroll to launchpad section
                         const presaleSection = document.getElementById('presale');
                         if (presaleSection) {
                           presaleSection.scrollIntoView({ behavior: 'smooth' });
@@ -2164,7 +2077,7 @@ O true Cypherpunks! The Final Block draweth near—watch and prepare, accumulate
                       }}
                       className={`bg-gradient-to-r ${item.color} text-white px-4 md:px-6 py-2 md:py-3 rounded-full font-medium text-sm md:text-base hover:scale-105 transition-transform touch-manipulation w-full md:w-auto shadow-lg hover:shadow-xl`}
                     >
-                      {isPresaleStarted ? item.action : `🔥 Coming Soon!`}
+                      {`🎉 ${item.action} - Completed!`}
                     </button>
                   ) : (
                     <button className={`bg-gradient-to-r ${item.color} text-white px-4 md:px-6 py-2 md:py-3 rounded-full font-medium text-sm md:text-base hover:scale-105 transition-transform touch-manipulation w-full md:w-auto`}>
@@ -2918,8 +2831,8 @@ O true Cypherpunks! The Final Block draweth near—watch and prepare, accumulate
             {/* Popup Image with Overlaid Button */}
             <div className="relative cursor-pointer transform hover:scale-105 transition-transform duration-300 shadow-2xl rounded-2xl overflow-hidden">
               <img
-                src="https://ugc.same-assets.com/e0cf3Kca7wJMomwiZlJOXFgEYzdKtL4C.png"
-                alt="Satoshi Presale Divine Meme Drop"
+                src="https://ugc.same-assets.com/x52rM6RU-y7JYYJzxtx2EgyKz_yecqoI.png"
+                alt="Satoshi Presale SOLD OUT - 100% Complete!"
                 className="w-full h-auto object-contain"
                 onError={(e) => {
                   const img = e.currentTarget as HTMLImageElement;
