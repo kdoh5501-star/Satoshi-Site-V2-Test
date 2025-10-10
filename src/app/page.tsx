@@ -817,422 +817,7 @@ The Eight Blessings from the Sermon on the P2P Mount
       </section>
 
       {/* Presale Section */}
-      {showValidatorSection && (
-        <section
-          id="presale"
-          className="text-white relative overflow-hidden bg-gradient-to-b from-slate-900 to-slate-800 md:bg-none min-h-fit md:min-h-[400px] md:h-[56.25vw] md:max-h-screen py-8 md:py-0"
-          style={{
-            backgroundColor: '#0B0D1D'
-          }}
-        >
-          {/* Background Video - Desktop only */}
-          <video
-            autoPlay
-            muted
-            loop
-            playsInline
-            preload="auto"
-            className="hidden md:block absolute inset-0 w-full h-full object-cover z-0 opacity-0 transition-opacity duration-500"
-            style={{objectPosition: 'center center'}}
-            onLoadedData={(e) => {
-              // Show video when loaded and ready
-              e.currentTarget.style.opacity = '1';
-            }}
-            onCanPlayThrough={(e) => {
-              // Ensure video is fully loaded
-              e.currentTarget.style.opacity = '1';
-            }}
-            onError={(e) => {
-              console.log('Presale background video failed to load');
-              e.currentTarget.style.display = 'none';
-            }}
-          >
-            <source src="/uploads/Satoshimeme_site_second_presale.mp4" type="video/mp4" />
-            Your browser does not support the video tag.
-          </video>
 
-
-
-          {/* 3rd PRESALE Text Overlay - Large screens only */}
-          <div className="hidden xl:block absolute top-[14%] left-[35%] transform -translate-x-1/2 -translate-y-1/2 z-20">
-            <h2 className="text-yellow-400 font-bold text-center" style={{fontFamily: 'Arial Black, Arial, sans-serif', textShadow: '2px 2px 4px rgba(0,0,0,0.8)', letterSpacing: '-0.05em', fontSize: '72px'}}>
-              Third Presale
-            </h2>
-          </div>
-
-          <div className="relative md:absolute md:inset-0 flex items-center justify-center md:justify-end px-4 md:pr-12 z-10 py-6 md:py-8 min-h-full">
-            {/* Mobile Simple Card */}
-            <div className="md:hidden bg-gradient-to-b from-slate-800/95 to-slate-900/95 rounded-2xl p-4 md:p-6 shadow-xl border border-gray-600/50 relative w-full max-w-lg mx-auto my-4">
-              <div className="text-center space-y-4">
-                {/* Mobile Header */}
-                <div className="flex items-center justify-center space-x-3 mb-4">
-                  <div className="w-12 h-12 rounded-full overflow-hidden shadow-lg shadow-yellow-400/50 border-2 border-yellow-400/50">
-                    <img
-                      src="https://ugc.same-assets.com/DCwo6Y9BZnZrbZfM09FjX6EIf0uD5L-r.jpeg"
-                      alt="Satoshi Meme Logo"
-                      className="w-full h-full object-cover"
-                    />
-                  </div>
-                  <h3 className="text-2xl font-bold text-white tracking-wide" style={{fontFamily: 'Montserrat, sans-serif'}}>
-                    SATOSHI MEME
-                  </h3>
-                  <div className="bg-yellow-400 px-3 py-1 rounded-lg">
-                    <span className="font-bold text-black" style={{fontFamily: 'Montserrat, sans-serif'}}>
-                      <span className="text-xs">STAGE </span>
-                      <span className="text-sm">3</span>
-                    </span>
-                  </div>
-                </div>
-
-                {/* Mobile Stage 2 Countdown */}
-                {!isStage3Started ? (
-                  <div className="space-y-4">
-                    {/* Stage 2 Countdown Content */}
-                    <h3 className="text-lg font-bold text-yellow-400 mb-3 text-center" style={{fontFamily: 'Montserrat, sans-serif'}}>3RD PRESALE STARTS IN</h3>
-
-                    {/* Countdown Grid */}
-                    <div className="grid grid-cols-2 gap-2 mb-4">
-                      <div className="bg-yellow-400/20 border border-yellow-400/50 rounded-lg py-3 text-center">
-                        <div className="text-xl font-bold text-yellow-400" style={{fontFamily: 'Montserrat, sans-serif'}}>{stage3TimeLeft.days}</div>
-                        <div className="text-xs text-gray-300" style={{fontFamily: 'Montserrat, sans-serif'}}>DAYS</div>
-                      </div>
-                      <div className="bg-yellow-400/20 border border-yellow-400/50 rounded-lg py-3 text-center">
-                        <div className="text-xl font-bold text-yellow-400" style={{fontFamily: 'Montserrat, sans-serif'}}>{stage3TimeLeft.hours}</div>
-                        <div className="text-xs text-gray-300" style={{fontFamily: 'Montserrat, sans-serif'}}>HOURS</div>
-                      </div>
-                      <div className="bg-yellow-400/20 border border-yellow-400/50 rounded-lg py-3 text-center">
-                        <div className="text-xl font-bold text-yellow-400" style={{fontFamily: 'Montserrat, sans-serif'}}>{stage3TimeLeft.minutes}</div>
-                        <div className="text-xs text-gray-300" style={{fontFamily: 'Montserrat, sans-serif'}}>MIN</div>
-                      </div>
-                      <div className="bg-yellow-400/20 border border-yellow-400/50 rounded-lg py-3 text-center">
-                        <div className="text-xl font-bold text-yellow-400" style={{fontFamily: 'Montserrat, sans-serif'}}>{stage3TimeLeft.seconds}</div>
-                        <div className="text-xs text-gray-300" style={{fontFamily: 'Montserrat, sans-serif'}}>SEC</div>
-                      </div>
-                    </div>
-
-                    <p className="text-xs text-gray-300 text-center" style={{fontFamily: 'Montserrat, sans-serif'}}>
-                      <span className="font-bold">Start:</span> September 11, 2025 18:00 (UTC+9)
-                    </p>
-
-                    {/* Price Section */}
-                    <div className="bg-yellow-400/20 border border-yellow-400/50 rounded-lg px-4 py-3 text-center">
-                      <span className="text-lg font-bold text-yellow-400" style={{fontFamily: 'Montserrat, sans-serif'}}>1 SATOSHI = 0.00009 USDT</span>
-                    </div>
-
-                    {/* Presale Info */}
-                    <div className="text-sm text-gray-300 space-y-1" style={{fontFamily: 'Montserrat, sans-serif'}}>
-                      <p><span className="font-bold">Minimum Purchase:</span> 1,000,000 SATOSHI</p>
-                    </div>
-
-                    {/* Get Ready Section */}
-                    <div className="text-center">
-                      <div className="bg-gray-700/50 rounded-lg p-3 mb-3">
-                        <h4 className="text-sm font-bold text-white mb-2" style={{fontFamily: 'Montserrat, sans-serif'}}>🚀 Get Ready!</h4>
-                        <p className="text-xs text-gray-300 leading-tight" style={{fontFamily: 'Montserrat, sans-serif'}}>
-                          Prepare your USDT and MBC wallet address for the presale launch!
-                        </p>
-                      </div>
-                      <a
-                        href="mailto:presale@satoshimemes.org?subject=SATOSHI Pre Sale - Interest"
-                        className="inline-block bg-gray-600 hover:bg-gray-500 text-white px-4 py-2 rounded-lg font-bold text-sm transition-colors"
-                        style={{fontFamily: 'Montserrat, sans-serif'}}
-                      >
-                        📧 Get Notified
-                      </a>
-                    </div>
-                  </div>
-                ) : (
-                <div className="space-y-4">
-                  {/* Price Section */}
-                  <div className="bg-yellow-400/20 border border-yellow-400/50 rounded-lg px-4 py-3 text-center">
-                    <span className="text-lg font-bold text-yellow-400" style={{fontFamily: 'Montserrat, sans-serif'}}>1 SATOSHI = 0.00009 USDT</span>
-                  </div>
-
-                  {/* Progress Section */}
-                  <div className="grid grid-cols-2 gap-3">
-                    <div className="text-center p-3 bg-transparent rounded-lg transform scale-120">
-                      <p className="text-sm font-bold text-green-400 mb-1">$540K / $540K</p>
-                      <p className="text-gray-300 text-xs font-bold">USDT RAISED</p>
-                    </div>
-                    <div className="text-center p-3 bg-transparent rounded-lg transform scale-120">
-                      <p className="text-sm font-bold text-blue-400 mb-1">6.0B / 6.0B</p>
-                      <p className="text-gray-300 text-xs font-bold">TOKENS SOLD</p>
-                    </div>
-                  </div>
-
-                  {/* Progress Bar */}
-                  <div className="relative">
-                    <div className="w-full h-10 bg-gray-700 rounded-full overflow-hidden">
-                      <div
-                        className="h-full bg-yellow-400 rounded-full relative"
-                        style={{width: `100%`, borderRadius: '20px'}}
-                      >
-                        {/* 불꽃 효과 - 모바일용 */}
-                        {progressPercentage > 3 && (
-                          <>
-                            <div className="absolute right-0 top-1/2 transform -translate-y-1/2">
-                              <div className="absolute w-1 h-1 bg-yellow-300 rounded-full animate-sparkle-float" style={{right: '-2px', top: '-3px', animationDelay: '0s'}}></div>
-                              <div className="absolute w-1 h-1 bg-orange-400 rounded-full animate-sparkle-float" style={{right: '-3px', top: '2px', animationDelay: '0.3s'}}></div>
-                              <div className="absolute w-1 h-1 bg-red-400 rounded-full animate-sparkle-float" style={{right: '-2px', top: '-1px', animationDelay: '0.6s'}}></div>
-                            </div>
-                            <div className="absolute right-0 top-1/2 transform -translate-y-1/2 w-3 h-3 bg-yellow-400 rounded-full opacity-60 animate-pulse" style={{right: '-6px'}}></div>
-                          </>
-                        )}
-                      </div>
-                    </div>
-                    {/* Percentage text */}
-                    <div className="absolute inset-0 flex items-center justify-center">
-                      <span className="font-bold text-xs text-white px-2 py-0.5 rounded-full" style={{fontFamily: 'Montserrat, sans-serif'}}>100%</span>
-                    </div>
-                  </div>
-
-                      {/* Presale Info */}
-                      <div className="text-sm text-gray-300 space-y-1" style={{fontFamily: 'Montserrat, sans-serif'}}>
-                        <p><span className="font-bold">Minimum Purchase:</span> 1,000,000 SATOSHI</p>
-                      </div>
-
-                  {/* How to Purchase */}
-                  <div>
-                    <h4 className="text-sm font-bold text-white mb-2" style={{fontFamily: 'Montserrat, sans-serif'}}>How to Purchase:</h4>
-                    <div className="text-xs text-gray-300 space-y-1" style={{fontFamily: 'Montserrat, sans-serif'}}>
-                      <p>1. Send USDT to wallet address below</p>
-                      <p>2. Email us with Transaction Information:</p>
-                      <div className="ml-4 space-y-1">
-                        <p>• TXID (Transaction ID)</p>
-                        <p>• Wallet Address (your MBC wallet address)</p>
-                        <p>• Deposit Details (Coin name & quantity deposited)</p>
-                      </div>
-                      <p>3. Distribution: Within 12 hours after participation</p>
-                    </div>
-                  </div>
-
-                      {/* PRESALE COMPLETED - Wallet Addresses Hidden */}
-                      <div className="bg-gradient-to-r from-green-600 to-emerald-600 rounded-lg p-4 text-center">
-                        <h4 className="text-lg font-bold text-white mb-2" style={{fontFamily: 'Montserrat, sans-serif'}}>🎉 PRESALE COMPLETED! 🎉</h4>
-                        <p className="text-sm text-green-100" style={{fontFamily: 'Montserrat, sans-serif'}}>
-                          Thank you for your participation!<br/>
-                          100% SOLD OUT - $540,000 Target Achieved!
-                        </p>
-                      </div>
-
-                  {/* Contact */}
-                  <div className="text-center">
-                    <a
-                      href="mailto:presale@satoshimemes.org?subject=SATOSHI Pre Sale - Purchase Request"
-                      className="inline-block bg-yellow-400 hover:bg-yellow-500 text-black px-6 py-3 rounded-lg font-bold text-sm transition-colors"
-                      style={{fontFamily: 'Montserrat, sans-serif'}}
-                    >
-                      📧 presale@satoshimemes.org
-                    </a>
-                  </div>
-                </div>
-                )}
-              </div>
-            </div>
-
-            {/* Desktop Full Card */}
-            <div className="hidden md:block bg-gradient-to-b from-slate-800/95 to-slate-900/95 rounded-2xl p-3 md:p-4 shadow-xl border border-gray-600/50 relative w-full max-w-sm md:max-w-md lg:max-w-lg xl:max-w-xl transform scale-82 md:scale-92 lg:scale-97 xl:scale-102">
-                {/* Card Header */}
-                <div className="flex items-center justify-between mb-3 md:mb-4">
-                  {/* Left: Logo */}
-                  <div className="w-10 h-10 md:w-12 md:h-12 rounded-full overflow-hidden shadow-lg shadow-yellow-400/50 border-2 border-yellow-400/50">
-                    <img
-                      src="https://ugc.same-assets.com/DCwo6Y9BZnZrbZfM09FjX6EIf0uD5L-r.jpeg"
-                      alt="Satoshi Meme Logo"
-                      className="w-full h-full object-cover"
-                    />
-                  </div>
-
-                  {/* Center: Title */}
-                  <div className="text-center flex-1">
-                    <h3 className="text-lg md:text-2xl font-bold text-white tracking-wide" style={{fontFamily: 'Montserrat, sans-serif'}}>
-                      SATOSHI MEME
-                    </h3>
-                  </div>
-
-                  {/* Right: Stage */}
-                  <div className="bg-yellow-400 px-3 py-1 md:px-4 md:py-2 rounded-[25px]">
-                    <span className="font-bold text-black" style={{fontFamily: 'Montserrat, sans-serif'}}>
-                      <span className="text-xs">STAGE </span>
-                      <span className="text-sm md:text-base">3</span>
-                    </span>
-                  </div>
-                </div>
-
-                {/* Desktop Countdown or Presale Content */}
-                {!isStage3Started ? (
-                  <>
-                    {/* Countdown Section */}
-                    <div className="text-center mb-4 md:mb-6">
-                      <h3 className="text-lg md:text-xl font-bold text-yellow-400 mb-3 md:mb-4" style={{fontFamily: 'Montserrat, sans-serif'}}>3RD PRESALE STARTS IN</h3>
-                      <div className="grid grid-cols-2 md:grid-cols-4 gap-2 mb-3 md:mb-4">
-                        <div className="bg-yellow-400/20 border border-yellow-400/50 rounded-lg py-2 md:py-3">
-                          <div className="text-xl md:text-2xl font-bold text-yellow-400" style={{fontFamily: 'Montserrat, sans-serif'}}>{stage3TimeLeft.days}</div>
-                          <div className="text-xs text-gray-300" style={{fontFamily: 'Montserrat, sans-serif'}}>DAYS</div>
-                        </div>
-                        <div className="bg-yellow-400/20 border border-yellow-400/50 rounded-lg py-2 md:py-3">
-                          <div className="text-xl md:text-2xl font-bold text-yellow-400" style={{fontFamily: 'Montserrat, sans-serif'}}>{stage3TimeLeft.hours}</div>
-                          <div className="text-xs text-gray-300" style={{fontFamily: 'Montserrat, sans-serif'}}>HOURS</div>
-                        </div>
-                        <div className="bg-yellow-400/20 border border-yellow-400/50 rounded-lg py-2 md:py-3">
-                          <div className="text-xl md:text-2xl font-bold text-yellow-400" style={{fontFamily: 'Montserrat, sans-serif'}}>{stage3TimeLeft.minutes}</div>
-                          <div className="text-xs text-gray-300" style={{fontFamily: 'Montserrat, sans-serif'}}>MIN</div>
-                        </div>
-                        <div className="bg-yellow-400/20 border border-yellow-400/50 rounded-lg py-2 md:py-3">
-                          <div className="text-xl md:text-2xl font-bold text-yellow-400" style={{fontFamily: 'Montserrat, sans-serif'}}>{stage3TimeLeft.seconds}</div>
-                          <div className="text-xs text-gray-300" style={{fontFamily: 'Montserrat, sans-serif'}}>SEC</div>
-                        </div>
-                      </div>
-                      <p className="text-xs md:text-sm text-gray-300" style={{fontFamily: 'Montserrat, sans-serif'}}>
-                        <span className="font-bold">Start:</span> September 11, 2025 18:00 (UTC+9)
-                      </p>
-                    </div>
-
-                    {/* Presale Preview Info */}
-                    <div className="mb-4 md:mb-6">
-                      <div className="bg-yellow-400/20 border border-yellow-400/50 rounded-lg px-3 py-2 md:px-4 md:py-3 mb-3 text-center">
-                        <span className="text-lg md:text-xl font-bold text-yellow-400" style={{fontFamily: 'Montserrat, sans-serif'}}>1 SATOSHI = 0.00009 USDT</span>
-                      </div>
-                      <div className="text-xs md:text-sm text-gray-300 space-y-1 md:space-y-2" style={{fontFamily: 'Montserrat, sans-serif'}}>
-                        <p><span className="font-bold">Minimum Purchase:</span> 1,000,000 SATOSHI</p>
-                      </div>
-                    </div>
-
-                    {/* Get Ready Section */}
-                    <div className="text-center">
-                      <div className="bg-gray-700/50 rounded-lg p-3 md:p-4 mb-3 md:mb-4">
-                        <h4 className="text-xs md:text-sm font-bold text-white mb-1 md:mb-2" style={{fontFamily: 'Montserrat, sans-serif'}}>🚀 Get Ready!</h4>
-                        <p className="text-xs text-gray-300 leading-tight" style={{fontFamily: 'Montserrat, sans-serif'}}>
-                          Prepare your USDT and MBC wallet address for the presale launch!
-                        </p>
-                      </div>
-                      <a
-                        href="mailto:presale@satoshimemes.org?subject=SATOSHI Pre Sale - Interest"
-                        className="inline-block bg-gray-600 hover:bg-gray-500 text-white px-4 py-2 md:px-6 md:py-3 rounded-lg font-bold text-xs md:text-sm transition-colors"
-                        style={{fontFamily: 'Montserrat, sans-serif'}}
-                      >
-                        📧 Get Notified
-                      </a>
-                    </div>
-                  </>
-                ) : (
-                  <>
-                    {/* Original Presale Content */}
-
-                    {/* Price Section */}
-                    <div className="mb-4 text-center">
-                      <div className="border border-yellow-400/50 px-4 py-3 mb-3 rounded-[36px] bg-[#FFFFFFff]">
-                        <span className="text-xl font-bold text-black" style={{fontFamily: 'Montserrat, sans-serif'}}>1 SATOSHI = 0.00009 USDT</span>
-                      </div>
-                    </div>
-
-                    {/* Progress Section */}
-                    <div className="mb-4">
-                      <div className="grid grid-cols-2 gap-3 mb-4">
-                        <div className="text-center p-3 bg-transparent rounded-[0px] transform scale-120">
-                          <p className="text-sm font-bold text-green-400 2xl:text-[20px] mb-1" style={{fontFamily: 'Montserrat, sans-serif'}}>$540K / $540K</p>
-                          <p className="text-gray-300 text-xs font-bold" style={{fontFamily: 'Montserrat, sans-serif'}}>USDT RAISED</p>
-                        </div>
-                        <div className="text-center p-3 bg-transparent rounded-lg transform scale-120">
-                          <p className="text-sm font-bold mb-1 2xl:text-[20px] text-[#FACC15]" style={{fontFamily: 'Montserrat, sans-serif'}}>6.0B / 6.0B</p>
-                          <p className="text-gray-300 text-xs font-bold" style={{fontFamily: 'Montserrat, sans-serif'}}>TOKENS SOLD</p>
-                        </div>
-                      </div>
-
-                      {/* Progress Bar with Fireworks Effect */}
-                      <div className="relative">
-                        <div className="w-full h-10 bg-gray-700 rounded-full overflow-hidden">
-                          <div
-                            className="h-full bg-yellow-400 rounded-full relative"
-                            style={{width: `100%`}}
-                          >
-                            {/* 불꽃 효과 - 진행률 바 끝에서 */}
-                            {progressPercentage > 3 && (
-                              <>
-                                <div className="absolute right-0 top-1/2 transform -translate-y-1/2">
-                                  {/* 메인 불꽃 파티클들 */}
-                                  <div className="absolute w-1.5 h-1.5 bg-yellow-300 rounded-full animate-sparkle-float" style={{right: '-3px', top: '-6px', animationDelay: '0s'}}></div>
-                                  <div className="absolute w-1.5 h-1.5 bg-orange-400 rounded-full animate-sparkle-float" style={{right: '-6px', top: '3px', animationDelay: '0.3s'}}></div>
-                                  <div className="absolute w-1 h-1 bg-red-400 rounded-full animate-sparkle-float" style={{right: '-4px', top: '-3px', animationDelay: '0.6s'}}></div>
-                                  <div className="absolute w-1 h-1 bg-yellow-200 rounded-full animate-sparkle-float" style={{right: '-2px', top: '5px', animationDelay: '0.9s'}}></div>
-                                  <div className="absolute w-1.5 h-1.5 bg-orange-300 rounded-full animate-sparkle-float" style={{right: '-7px', top: '-2px', animationDelay: '1.2s'}}></div>
-
-                                  {/* 추가 작은 파티클들 */}
-                                  <div className="absolute w-1 h-1 bg-yellow-300 rounded-full animate-sparkle-float" style={{right: '-8px', top: '2px', animationDelay: '1.5s'}}></div>
-                                  <div className="absolute w-1 h-1 bg-orange-500 rounded-full animate-sparkle-float" style={{right: '-3px', top: '6px', animationDelay: '1.8s'}}></div>
-                                  <div className="absolute w-1 h-1 bg-red-300 rounded-full animate-sparkle-float" style={{right: '-5px', top: '-4px', animationDelay: '2.1s'}}></div>
-                                </div>
-
-                                {/* 글로우 효과 */}
-                                <div className="absolute right-0 top-1/2 transform -translate-y-1/2 w-4 h-4 bg-yellow-400 rounded-full opacity-60 animate-pulse" style={{right: '-8px'}}></div>
-                              </>
-                            )}
-                          </div>
-                        </div>
-                        {/* Percentage text centered over the entire progress bar */}
-                        <div className="absolute inset-0 flex items-center justify-center">
-                          <span className="font-bold text-xs text-white px-2 py-0.5 rounded-full 2xl:text-[15px]" style={{fontFamily: 'Montserrat, sans-serif'}}>100%</span>
-                        </div>
-
-
-                      </div>
-                    </div>
-
-                    {/* Presale Info */}
-                    <div className="mb-4">
-                      <div className="text-sm text-gray-300 space-y-2" style={{fontFamily: 'Montserrat, sans-serif'}}>
-                        <p><span className="font-bold">Period:</span> September 11, 2025, 18:00 (UTC+9) – Until target reached</p>
-                        <p><span className="font-bold">Minimum Purchase:</span> 1,000,000 SATOSHI</p>
-                      </div>
-                    </div>
-
-                    {/* Purchase Process */}
-                    <div className="mb-4">
-                      <h4 className="text-sm font-bold text-white mb-3" style={{fontFamily: 'Montserrat, sans-serif'}}>How to Purchase:</h4>
-                      <div className="text-sm text-gray-300 space-y-2" style={{fontFamily: 'Montserrat, sans-serif'}}>
-                        <p>1. Send USDT to wallet address below</p>
-                        <p>2. Email us with Transaction Information:</p>
-                        <div className="ml-4 space-y-1">
-                          <p>• TXID (Transaction ID)</p>
-                          <p>• Wallet Address (your MBC wallet address)</p>
-                          <p>• Deposit Details (Coin name & quantity deposited)</p>
-                        </div>
-                        <p>※ Distribution: Within 12 hours after participation</p>
-                      </div>
-                    </div>
-
-                    {/* PRESALE COMPLETED - Wallet Addresses Hidden */}
-                    <div className="mb-4">
-                      <div className="bg-gradient-to-r from-green-600 to-emerald-600 rounded-lg p-6 text-center">
-                        <h4 className="text-xl font-bold text-white mb-3" style={{fontFamily: 'Montserrat, sans-serif'}}>🎉 PRESALE COMPLETED! 🎉</h4>
-                        <p className="text-base text-green-100 mb-2" style={{fontFamily: 'Montserrat, sans-serif'}}>
-                          Thank you for your incredible support!
-                        </p>
-                        <p className="text-lg font-bold text-yellow-300" style={{fontFamily: 'Montserrat, sans-serif'}}>
-                          100% SOLD OUT - $540,000 Target Achieved!
-                        </p>
-                        <p className="text-sm text-green-100 mt-2" style={{fontFamily: 'Montserrat, sans-serif'}}>
-                          🚀 Get ready for the next phase! 🚀
-                        </p>
-                      </div>
-                    </div>
-
-                    {/* Contact */}
-                    <div className="text-center">
-                      <a
-                        href="mailto:presale@satoshimemes.org?subject=SATOSHI Pre Sale - Purchase Request"
-                        className="inline-block bg-yellow-400 hover:bg-yellow-500 text-black px-6 py-3 rounded-lg font-bold text-sm transition-colors"
-                        style={{fontFamily: 'Montserrat, sans-serif'}}
-                      >
-                        📧 presale@satoshimemes.org
-                      </a>
-                    </div>
-                  </>
-                )}
-            </div>
-          </div>
-        </section>
-      )}
 
       {/* Satoshi TV Section */}
       {showSatoshiTV && (
@@ -2067,18 +1652,14 @@ O true Cypherpunks! The Final Block draweth near—watch and prepare, accumulate
                       {item.action}
                     </a>
                   ) : item.isPreSale ? (
-                    <button
-                      onClick={() => {
-                        // Always scroll to launchpad section
-                        const presaleSection = document.getElementById('presale');
-                        if (presaleSection) {
-                          presaleSection.scrollIntoView({ behavior: 'smooth' });
-                        }
-                      }}
-                      className={`bg-gradient-to-r ${item.color} text-white px-4 md:px-6 py-2 md:py-3 rounded-full font-medium text-sm md:text-base hover:scale-105 transition-transform touch-manipulation w-full md:w-auto shadow-lg hover:shadow-xl`}
+                    <a
+                      href="https://dex-trade.com/ieo/SATOSHI"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className={`bg-gradient-to-r ${item.color} text-white px-4 md:px-6 py-2 md:py-3 rounded-full font-medium text-sm md:text-base hover:scale-105 transition-transform touch-manipulation w-full md:w-auto shadow-lg hover:shadow-xl inline-block text-center`}
                     >
-                      {item.action}
-                    </button>
+                      {`🎉 ${item.action}`}
+                    </a>
                   ) : (
                     <button className={`bg-gradient-to-r ${item.color} text-white px-4 md:px-6 py-2 md:py-3 rounded-full font-medium text-sm md:text-base hover:scale-105 transition-transform touch-manipulation w-full md:w-auto`}>
                       {item.action}
@@ -2828,10 +2409,10 @@ O true Cypherpunks! The Final Block draweth near—watch and prepare, accumulate
               ×
             </button>
 
-            {/* Popup Image with Overlaid Button */}
-            <div className="relative cursor-pointer transform hover:scale-105 transition-transform duration-300 shadow-2xl rounded-2xl overflow-hidden">
+            {/* Popup Image */}
+            <div className="transform hover:scale-105 transition-transform duration-300 shadow-2xl rounded-2xl overflow-hidden mb-6">
               <img
-                src="https://ugc.same-assets.com/x52rM6RU-y7JYYJzxtx2EgyKz_yecqoI.png"
+                src="https://ugc.same-assets.com/W4WZ178HtgypL-guo5mRMzRFbHS1KOb5.png"
                 alt="Satoshi Presale SOLD OUT - 100% Complete!"
                 className="w-full h-auto object-contain"
                 onError={(e) => {
@@ -2844,6 +2425,21 @@ O true Cypherpunks! The Final Block draweth near—watch and prepare, accumulate
                   }
                 }}
               />
+            </div>
+
+            {/* IEO Buy Now Button - Overlapping Image */}
+            <div className="flex justify-center -mt-10 md:-mt-14 relative z-30">
+              <a
+                href="https://dex-trade.com/ieo/SATOSHI"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="bg-gradient-to-r from-yellow-400 to-orange-500 hover:from-yellow-300 hover:to-orange-400 text-black px-8 md:px-12 py-3 md:py-5 rounded-full font-bold text-lg md:text-3xl hover:scale-110 transition-all duration-300 shadow-2xl border-4 border-yellow-300 hover:shadow-yellow-400/50"
+                style={{fontFamily: 'Montserrat, sans-serif'}}
+              >
+                <span className="block md:hidden">🚀 Buy Now! 🚀</span>
+                <span className="hidden md:block">🚀 Buy Now !</span>
+              </a>
+            </div>
 
               {/* Sold-out popup: no bottom CTA button (hidden)
               <button
@@ -2875,7 +2471,6 @@ O true Cypherpunks! The Final Block draweth near—watch and prepare, accumulate
                 )}
               </button>
               */}
-            </div>
           </div>
         </div>
       )}
