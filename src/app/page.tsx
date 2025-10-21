@@ -1653,7 +1653,7 @@ O true Cypherpunks! The Final Block draweth near—watch and prepare, accumulate
                     </a>
                   ) : item.isPreSale ? (
                     <a
-                      href="https://dex-trade.com/ieo/SATOSHI"
+                      href="https://dex-trade.com/ieo/SATOSHI2"
                       target="_blank"
                       rel="noopener noreferrer"
                       className={`bg-gradient-to-r ${item.color} text-white px-4 md:px-6 py-2 md:py-3 rounded-full font-medium text-sm md:text-base hover:scale-105 transition-transform touch-manipulation w-full md:w-auto shadow-lg hover:shadow-xl inline-block text-center`}
@@ -2430,7 +2430,7 @@ O true Cypherpunks! The Final Block draweth near—watch and prepare, accumulate
             {/* IEO Buy Now Button - Overlapping Image */}
             <div className="flex justify-center -mt-10 md:-mt-14 relative z-30">
               <a
-                href="https://dex-trade.com/ieo/SATOSHI"
+                href="https://dex-trade.com/ieo/SATOSHI2"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="bg-gradient-to-r from-yellow-400 to-orange-500 hover:from-yellow-300 hover:to-orange-400 text-black px-8 md:px-12 py-3 md:py-5 rounded-full font-bold text-lg md:text-3xl hover:scale-110 transition-all duration-300 shadow-2xl border-4 border-yellow-300 hover:shadow-yellow-400/50"
