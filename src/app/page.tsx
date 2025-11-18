@@ -2412,18 +2412,18 @@ O true Cypherpunks! The Final Block draweth near—watch and prepare, accumulate
             {/* Popup Image */}
             <div className="transform hover:scale-105 transition-transform duration-300 shadow-2xl rounded-2xl overflow-hidden mb-6">
               <img
-                src="/uploads/ieo-3rd-completed.jpg?v=1"
+                src="/uploads/IEO%203RD%20ROUND%20COMPLETED%20%20.jpg"
                 alt="IEO 3rd Round Completed — Official Launch Coming Soon"
                 className="w-full h-auto object-contain"
                 onError={(e) => {
                   const img = e.currentTarget as HTMLImageElement;
-                  // Fallbacks to handle different possible asset locations/extensions
-                  if (img.src.includes('/uploads/ieo-3rd-completed.jpg')) {
-                    img.src = '/uploads/ieo-3rd-completed.png?v=1';
-                  } else if (img.src.includes('/uploads/ieo-3rd-completed.png')) {
-                    img.src = '/ieo-3rd-completed.jpg?v=1';
-                  } else if (img.src.includes('/ieo-3rd-completed.jpg')) {
-                    img.src = '/ieo-3rd-completed.png?v=1';
+                  // Fallbacks for spaces/non-encoded paths and extension variants
+                  if (img.src.includes('IEO%203RD%20ROUND%20COMPLETED%20%20.jpg')) {
+                    img.src = '/uploads/IEO 3RD ROUND COMPLETED  .jpg';
+                  } else if (img.src.includes('IEO 3RD ROUND COMPLETED  .jpg')) {
+                    img.src = '/uploads/IEO%203RD%20ROUND%20COMPLETED%20%20.png';
+                  } else if (img.src.includes('IEO%203RD%20ROUND%20COMPLETED%20%20.png')) {
+                    img.src = '/uploads/IEO 3RD ROUND COMPLETED  .png';
                   }
                 }}
               />
