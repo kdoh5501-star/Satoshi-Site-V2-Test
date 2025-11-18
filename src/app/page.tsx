@@ -2412,34 +2412,24 @@ O true Cypherpunks! The Final Block draweth near—watch and prepare, accumulate
             {/* Popup Image */}
             <div className="transform hover:scale-105 transition-transform duration-300 shadow-2xl rounded-2xl overflow-hidden mb-6">
               <img
-                src="https://ugc.same-assets.com/W4WZ178HtgypL-guo5mRMzRFbHS1KOb5.png"
-                alt="Satoshi Presale SOLD OUT - 100% Complete!"
+                src="/uploads/ieo-3rd-completed.jpg?v=1"
+                alt="IEO 3rd Round Completed — Official Launch Coming Soon"
                 className="w-full h-auto object-contain"
                 onError={(e) => {
                   const img = e.currentTarget as HTMLImageElement;
-                  // Try alternate uploads path for the same sold-out image
-                  if (img.src.includes('/Second-presale-sold-out')) {
-                    img.src = '/uploads/Second-presale-sold-out.png?v=3';
-                  } else if (img.src.includes('/uploads/Second-presale-sold-out')) {
-                    img.src = '/Second-presale-sold-out.png?v=3';
+                  // Fallbacks to handle different possible asset locations/extensions
+                  if (img.src.includes('/uploads/ieo-3rd-completed.jpg')) {
+                    img.src = '/uploads/ieo-3rd-completed.png?v=1';
+                  } else if (img.src.includes('/uploads/ieo-3rd-completed.png')) {
+                    img.src = '/ieo-3rd-completed.jpg?v=1';
+                  } else if (img.src.includes('/ieo-3rd-completed.jpg')) {
+                    img.src = '/ieo-3rd-completed.png?v=1';
                   }
                 }}
               />
             </div>
 
-            {/* IEO Buy Now Button - Overlapping Image */}
-            <div className="flex justify-center -mt-10 md:-mt-14 relative z-30">
-              <a
-                href="https://dex-trade.com/ieo/SATOSHI3"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="bg-gradient-to-r from-yellow-400 to-orange-500 hover:from-yellow-300 hover:to-orange-400 text-black px-8 md:px-12 py-3 md:py-5 rounded-full font-bold text-lg md:text-3xl hover:scale-110 transition-all duration-300 shadow-2xl border-4 border-yellow-300 hover:shadow-yellow-400/50"
-                style={{fontFamily: 'Montserrat, sans-serif'}}
-              >
-                <span className="block md:hidden">🚀 Buy Now! 🚀</span>
-                <span className="hidden md:block">🚀 Buy Now !</span>
-              </a>
-            </div>
+            {/* Removed Buy Now button as IEO has completed */}
 
               {/* Sold-out popup: no bottom CTA button (hidden)
               <button
