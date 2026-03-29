@@ -1,19 +1,7 @@
 import type { Metadata } from "next";
 import Script from "next/script";
-import { EB_Garamond, Cinzel } from "next/font/google";
+import { AutoScrollAnimation } from "@/components/AutoScrollAnimation";
 import "./globals.css";
-
-const ebGaramond = EB_Garamond({
-  subsets: ["latin"],
-  weight: ["400", "500", "600", "700"],
-  variable: "--font-eb-garamond"
-});
-
-const cinzel = Cinzel({
-  subsets: ["latin"],
-  weight: ["400", "500", "600", "700"],
-  variable: "--font-cinzel"
-});
 
 export const metadata: Metadata = {
   title: "The Satoshi Code 2.0: From Code to Culture",
@@ -69,6 +57,9 @@ export default function RootLayout({
   return (
     <html lang="en">
       <head>
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
+        <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700&family=EB+Garamond:wght@400;500;600;700&display=swap" rel="stylesheet" />
         <link rel="icon" href="/favicon/favicon.ico" sizes="any" />
         <link rel="icon" type="image/png" href="/favicon/favicon-16x16.png" sizes="16x16" />
         <link rel="icon" type="image/png" href="/favicon/favicon-32x32.png" sizes="32x32" />
@@ -151,7 +142,7 @@ export default function RootLayout({
             gtag('config', '${process.env.NEXT_PUBLIC_GOOGLE_ADS_ID || 'AW-17384712576'}');`}
         </Script>
 
-        {/* Event snippet for 페이지 조회 conversion */}
+        {/* Event snippet for conversion */}
         <Script id="gtag-events" strategy="afterInteractive">
           {`function gtag_report_conversion(url) {
               var callback = function () {
@@ -178,7 +169,7 @@ export default function RootLayout({
         </Script>
         {/* End Google tag (gtag.js) */}
       </head>
-      <body className={`${ebGaramond.variable} ${cinzel.variable} font-serif antialiased`}>
+      <body className="font-serif antialiased" style={{fontFamily: "'EB Garamond', 'Cinzel', serif"}}>
         {/* Google Tag Manager (noscript) */}
         <noscript>
           <iframe
@@ -189,6 +180,7 @@ export default function RootLayout({
           />
         </noscript>
         {/* End Google Tag Manager (noscript) */}
+        <AutoScrollAnimation />
         {children}
       </body>
     </html>
