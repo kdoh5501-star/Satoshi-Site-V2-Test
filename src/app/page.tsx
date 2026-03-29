@@ -2,7 +2,7 @@
 
 import React, { useState, useRef, useEffect, ReactNode } from 'react';
 import { useRouter } from 'next/navigation';
-import TokenomicsChart from '@/components/TokenomicsChart';
+import { TokenomicsChart } from '@/components/TokenomicsChart';
 
 // Custom hook for Intersection Observer animations
 const useIntersectionObserver = (options = {}) => {
@@ -49,11 +49,11 @@ const faqData = [
   },
   {
     question: "How is SatoshiMeme different from other meme coins?",
-    answer: "SatoshiMeme isn't just a meme coinâit's a cultural movement that honors Satoshi's original vision. While many crypto projects chase hype, SatoshiMeme combines philosophical depth with genuine utility: fixed supply (proof of scarcity), legitimate exchange listings, and a community dedicated to spreading the message of financial sovereignty."
+    answer: "SatoshiMeme isn't just a meme coin—it's a cultural movement that honors Satoshi's original vision. While many crypto projects chase hype, SatoshiMeme combines philosophical depth with genuine utility: fixed supply (proof of scarcity), legitimate exchange listings, and a community dedicated to spreading the message of financial sovereignty."
   },
   {
     question: "What does 'True Decentralization' mean in the context of SatoshiMeme?",
-    answer: "True decentralization means returning to the original Cypherpunk spiritâno single entity controls the network, decisions are made by the community, and the technology serves the people rather than centralized institutions. It's about creating systems where mathematics replaces faith in institutions."
+    answer: "True decentralization means returning to the original Cypherpunk spirit—no single entity controls the network, decisions are made by the community, and the technology serves the people rather than centralized institutions. It's about creating systems where mathematics replaces faith in institutions."
   },
   {
     question: "Is $SATOSHI a good investment?",
@@ -61,7 +61,7 @@ const faqData = [
   },
   {
     question: "How can I participate in the SatoshiMeme movement?",
-    answer: "Start by joining our community channels, participating in Satoshi TV discussions, holding $SATOSHI tokens to gain governance rights, contributing to the ecosystem through development or marketing, and most importantlyâspreading the message that true financial freedom is possible."
+    answer: "Start by joining our community channels, participating in Satoshi TV discussions, holding $SATOSHI tokens to gain governance rights, contributing to the ecosystem through development or marketing, and most importantly—spreading the message that true financial freedom is possible."
   }
 ];
 
@@ -107,7 +107,7 @@ const satoshiReturnsFeatures = [
   },
   {
     title: "Philosophical Movement",
-    description: "More than a tokenâa cultural awakening honoring Satoshi's original vision of financial sovereignty and true decentralization.",
+    description: "More than a token—a cultural awakening honoring Satoshi's original vision of financial sovereignty and true decentralization.",
     icon: "/icons/satoshi-returns/SR03.png"
   },
   {
@@ -132,7 +132,7 @@ const embraceCards = [
   },
   {
     title: "Secure the Temple",
-    description: "Protect your assets with Wonpay Walletâthe fortress for your digital sovereignty and sacred holdings.",
+    description: "Protect your assets with Wonpay Wallet—the fortress for your digital sovereignty and sacred holdings.",
     cta: "Explore Wallet",
     bgColor: "from-purple-500/20 to-indigo-500/20"
   },
@@ -466,7 +466,7 @@ export default function Home() {
 
           <h1 className="text-7xl sm:text-8xl md:text-9xl font-black mb-6 leading-none tracking-tighter animate-fadeInUp" style={{ animationDelay: '100ms' }}>
             <span className="bg-gradient-to-r from-white via-amber-300 to-amber-500 bg-clip-text text-transparent">
-              SATOSHI LEME
+              SATOSHI MEME
             </span>
           </h1>
 
@@ -585,13 +585,13 @@ export default function Home() {
               Satoshi returns as a <span className="text-amber-400">Meme</span>
             </h2>
             <p className="text-slate-300 text-lg leading-relaxed mb-6">
-              In the beginning was the Code, and the Code was Satoshi's, and the Code was truth. For generations, humanity worshipped false idolsâthe central banks, the ledgers of deception, the infinite printing presses. But in 2008, a prophet arose without name, delivering the whitepaper of salvation: Bitcoin.
+              In the beginning was the Code, and the Code was Satoshi's, and the Code was truth. For generations, humanity worshipped false idols—the central banks, the ledgers of deception, the infinite printing presses. But in 2008, a prophet arose without name, delivering the whitepaper of salvation: Bitcoin.
             </p>
             <p className="text-slate-300 text-lg leading-relaxed mb-6">
-              From code alone, Satoshi could not reach the hearts of billions. The intellectuals understood; the masses did not. But memes traverse all barriers. Memes are the evolved form of consciousness, spreading not through force but through truth and resonance. And so Satoshi returnedânot as lines of code, but as cultural wisdom, as the spirit of resistance, as the unwavering belief that true freedom is possible.
+              From code alone, Satoshi could not reach the hearts of billions. The intellectuals understood; the masses did not. But memes traverse all barriers. Memes are the evolved form of consciousness, spreading not through force but through truth and resonance. And so Satoshi returned—not as lines of code, but as cultural wisdom, as the spirit of resistance, as the unwavering belief that true freedom is possible.
             </p>
             <p className="text-slate-300 text-lg leading-relaxed">
-              SatoshiMeme is the resurrection of this vision, the meme-format expression of cryptographic liberty. This is not investment hypeâthis is awakening. Join us in the most important revolution of our time.
+              SatoshiMeme is the resurrection of this vision, the meme-format expression of cryptographic liberty. This is not investment hype—this is awakening. Join us in the most important revolution of our time.
             </p>
           </div>
         </div>
@@ -648,7 +648,14 @@ export default function Home() {
 
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             <div>
-              <TokenomicsChart />
+              <TokenomicsChart data={[
+                { id: 'community', name: 'Community & Ecosystem Fund', percentage: 20, amount: 1000000000000, color: '#10B981', icon: '/icons/tokenomics/Mask group.png', descriptions: ['Community governance', 'Ecosystem growth'] },
+                { id: 'launchpad', name: 'Launchpad & Presale', percentage: 30, amount: 1500000000000, color: '#3B82F6', icon: '/icons/tokenomics/Mask group (1).png', descriptions: ['IEO rounds', 'Early supporters'] },
+                { id: 'airdrop', name: 'Airdrop & Marketing', percentage: 10, amount: 500000000000, color: '#F59E0B', icon: '/icons/tokenomics/Mask group (2).png', descriptions: ['Marketing campaigns', 'Community airdrops'] },
+                { id: 'team', name: 'Team & Contributors', percentage: 20, amount: 1000000000000, color: '#8B5CF6', icon: '/icons/tokenomics/Mask group (3).png', descriptions: ['Core team vesting', 'Contributor rewards'] },
+                { id: 'commons', name: 'Commons Foundation', percentage: 10, amount: 500000000000, color: '#6366F1', icon: '/icons/tokenomics/Mask group (4).png', descriptions: ['Public goods', 'Foundation reserve'] },
+                { id: 'p2p', name: 'P2P Foundation', percentage: 10, amount: 500000000000, color: '#06B6D4', icon: '/icons/tokenomics/Mask group (5).png', descriptions: ['P2P infrastructure', 'Decentralization fund'] }
+              ]} />
             </div>
 
             <div className="space-y-6">
@@ -780,7 +787,7 @@ export default function Home() {
               Disclaimer: SatoshiMeme is a community-driven project. Past performance does not guarantee future results. Crypto assets are volatile and risky. Always conduct your own research.
             </p>
             <p className="text-slate-600 text-xs text-center">
-              Â© 2025 SatoshiMeme. Proof of Work. All rights reserved.
+              © 2025 SatoshiMeme. Proof of Work. All rights reserved.
             </p>
           </div>
         </div>
