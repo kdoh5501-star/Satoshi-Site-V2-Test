@@ -1,6 +1,5 @@
 import type { Metadata } from "next";
 import Script from "next/script";
-import { AutoScrollAnimation } from "@/components/AutoScrollAnimation";
 import "./globals.css";
 
 export const metadata: Metadata = {
@@ -57,69 +56,42 @@ export default function RootLayout({
   return (
     <html lang="en">
       <head>
+        {/* Google Fonts - loaded via CSS link to avoid next/font build issues */}
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
-        <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700&family=EB+Garamond:wght@400;500;600;700&display=swap" rel="stylesheet" />
+        <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:wght@400;500;600;700&family=Cinzel:wght@400;500;600;700;900&family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
+
         <link rel="icon" href="/favicon/favicon.ico" sizes="any" />
         <link rel="icon" type="image/png" href="/favicon/favicon-16x16.png" sizes="16x16" />
         <link rel="icon" type="image/png" href="/favicon/favicon-32x32.png" sizes="32x32" />
         <link rel="shortcut icon" href="/favicon/favicon.ico" />
-
         <link rel="apple-touch-icon" href="/favicon/apple-touch-icon.png" sizes="180x180" />
-
         <link rel="icon" type="image/png" href="/favicon/android-chrome-192x192.png" sizes="192x192" />
         <link rel="icon" type="image/png" href="/favicon/android-chrome-512x512.png" sizes="512x512" />
 
-        <meta name="theme-color" content="#FBBF24" />
+        <meta name="theme-color" content="#0f172a" />
         <meta name="apple-mobile-web-app-capable" content="yes" />
-        <meta name="apple-mobile-web-app-status-bar-style" content="default" />
+        <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
         <meta name="apple-mobile-web-app-title" content="SatoshiMeme" />
-
         <link rel="manifest" href="/manifest.json" />
 
-        {/* Enhanced Open Graph for better SNS sharing */}
+        {/* Open Graph */}
         <meta property="og:type" content="website" />
         <meta property="og:title" content="The Satoshi Code 2.0: From Code to Culture" />
-        <meta property="og:description" content="Continue the sacred teachings of Proof of Work given to us by Satoshi. Join the movement of true believers in decentralized truth and mathematical proof." />
+        <meta property="og:description" content="Continue the sacred teachings of Proof of Work given to us by Satoshi." />
         <meta property="og:url" content="https://satoshimemes.com/" />
         <meta property="og:site_name" content="SatoshiMeme" />
         <meta property="og:image" content="https://satoshimemes.com/uploads/matadata.png?v=2025072020" />
-        <meta property="og:image:secure_url" content="https://satoshimemes.com/uploads/matadata.png?v=2025072020" />
-        <meta property="og:image:type" content="image/png" />
         <meta property="og:image:width" content="1568" />
         <meta property="og:image:height" content="882" />
-        <meta property="og:image:alt" content="SatoshiMeme - The Millennium Kingdom: Final Revolution" />
         <meta property="og:locale" content="en_US" />
 
-        {/* Twitter Card - Optimized for better compatibility */}
+        {/* Twitter */}
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:site" content="@SatoshimemesCom" />
-        <meta name="twitter:creator" content="@SatoshimemesCom" />
-        <meta name="twitter:title" content="The Satoshi Code 2.0: From Code to Culture" />
-        <meta name="twitter:description" content="Continue the sacred teachings of Proof of Work given to us by Satoshi. Join the movement of true believers in decentralized truth and mathematical proof." />
         <meta name="twitter:image" content="https://satoshimemes.com/uploads/matadata.png?v=2025072020" />
-        <meta name="twitter:image:alt" content="SatoshiMeme - The Millennium Kingdom: Final Revolution" />
-        <meta name="twitter:image:width" content="1568" />
-        <meta name="twitter:image:height" content="882" />
 
-        {/* Facebook specific optimizations */}
-        <meta property="fb:app_id" content="SatoshiMeme" />
-        <meta property="article:author" content="SatoshiMeme Team" />
-
-        {/* Telegram specific */}
-        <meta name="telegram:channel" content="@SatoshiMeme" />
-
-        {/* Additional meta for better crawling */}
-        <meta name="description" content="Continue the sacred teachings of Proof of Work given to us by Satoshi. Join the movement of true believers in decentralized truth and mathematical proof." />
-        <meta property="og:updated_time" content="2025-07-20T20:00:00Z" />
         <meta name="robots" content="index, follow, max-image-preview:large" />
-        <meta name="generator" content="SatoshiMeme" />
-
-        {/* Force cache invalidation */}
-        <meta httpEquiv="cache-control" content="no-cache, no-store, must-revalidate" />
-        <meta httpEquiv="pragma" content="no-cache" />
-        <meta httpEquiv="expires" content="0" />
-
         <meta name="author" content="SatoshiMeme Team" />
         <meta name="keywords" content="Satoshi Nakamoto, Bitcoin, Cryptocurrency, Meme Coin, Blockchain, P2P, Decentralization, MicroBitcoin" />
 
@@ -131,9 +103,8 @@ export default function RootLayout({
             'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
             })(window,document,'script','dataLayer','${process.env.NEXT_PUBLIC_GTM_ID || 'GTM-XXXXXXX'}');`}
         </Script>
-        {/* End Google Tag Manager */}
 
-        {/* Google tag (gtag.js) */}
+        {/* Google Ads */}
         <Script id="gtag-src" async src={`https://www.googletagmanager.com/gtag/js?id=${process.env.NEXT_PUBLIC_GOOGLE_ADS_ID || 'AW-17384712576'}`}/>
         <Script id="gtag-init" strategy="afterInteractive">
           {`window.dataLayer = window.dataLayer || [];
@@ -141,35 +112,20 @@ export default function RootLayout({
             gtag('js', new Date());
             gtag('config', '${process.env.NEXT_PUBLIC_GOOGLE_ADS_ID || 'AW-17384712576'}');`}
         </Script>
-
-        {/* Event snippet for conversion */}
         <Script id="gtag-events" strategy="afterInteractive">
           {`function gtag_report_conversion(url) {
               var callback = function () {
-                if (typeof(url) != 'undefined') {
-                  window.location = url;
-                }
+                if (typeof(url) != 'undefined') { window.location = url; }
               };
               gtag('event', 'conversion', {
                   'send_to': 'AW-17384712576/VwpsCLS79_UaEIDT1uFA',
-                  'value': 1.0,
-                  'currency': 'KRW',
-                  'event_callback': callback
-              });
-              return false;
-            }
-            function gtag_report_airdrop_conversion() {
-              gtag('event', 'conversion', {
-                  'send_to': 'AW-17384712576/airdrop_submission',
-                  'value': 1.0,
-                  'currency': 'KRW'
+                  'value': 1.0, 'currency': 'KRW', 'event_callback': callback
               });
               return false;
             }`}
         </Script>
-        {/* End Google tag (gtag.js) */}
       </head>
-      <body className="font-serif antialiased" style={{fontFamily: "'EB Garamond', 'Cinzel', serif"}}>
+      <body className="antialiased bg-slate-950 text-white" style={{ fontFamily: "'Inter', 'Cinzel', 'EB Garamond', sans-serif" }}>
         {/* Google Tag Manager (noscript) */}
         <noscript>
           <iframe
@@ -179,8 +135,6 @@ export default function RootLayout({
             style={{display: 'none', visibility: 'hidden'}}
           />
         </noscript>
-        {/* End Google Tag Manager (noscript) */}
-        <AutoScrollAnimation />
         {children}
       </body>
     </html>
