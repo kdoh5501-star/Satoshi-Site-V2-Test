@@ -637,49 +637,24 @@ export default function Home() {
       </section>
 
       {/* Token Distribution */}
-      <section id="tokenomics" className="py-20 bg-slate-950">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="mb-16">
-            <h2 className="text-4xl md:text-5xl font-black text-white mb-3 tracking-tight">
-              Token <span className="text-amber-400">Distribution</span>
+      <section id="tokenomics" className="py-24 bg-slate-950 relative overflow-hidden">
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-amber-500/[0.03] rounded-full blur-3xl pointer-events-none" />
+        <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+          <div className="text-center mb-16">
+            <p className="text-amber-400/80 text-sm font-semibold uppercase tracking-[0.2em] mb-4">Tokenomics</p>
+            <h2 className="text-4xl md:text-5xl font-black text-white mb-4 tracking-tight">
+              Token <span className="bg-gradient-to-r from-amber-400 to-amber-500 bg-clip-text text-transparent">Distribution</span>
             </h2>
-            <p className="text-slate-400 text-lg">5 Trillion SATOSHI: Distributed with Purpose</p>
+            <p className="text-slate-400 text-lg max-w-xl mx-auto">5 Trillion SATOSHI — engineered for longevity, distributed with purpose</p>
           </div>
-
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-            <div>
-              <TokenomicsChart data={[
-                { id: 'community', name: 'Community & Ecosystem Fund', percentage: 20, amount: 1000000000000, color: '#10B981', icon: '/icons/tokenomics/Mask group.png', descriptions: ['Community governance', 'Ecosystem growth'] },
-                { id: 'launchpad', name: 'Launchpad & Presale', percentage: 30, amount: 1500000000000, color: '#3B82F6', icon: '/icons/tokenomics/Mask group (1).png', descriptions: ['IEO rounds', 'Early supporters'] },
-                { id: 'airdrop', name: 'Airdrop & Marketing', percentage: 10, amount: 500000000000, color: '#F59E0B', icon: '/icons/tokenomics/Mask group (2).png', descriptions: ['Marketing campaigns', 'Community airdrops'] },
-                { id: 'team', name: 'Team & Contributors', percentage: 20, amount: 1000000000000, color: '#8B5CF6', icon: '/icons/tokenomics/Mask group (3).png', descriptions: ['Core team vesting', 'Contributor rewards'] },
-                { id: 'commons', name: 'Commons Foundation', percentage: 10, amount: 500000000000, color: '#6366F1', icon: '/icons/tokenomics/Mask group (4).png', descriptions: ['Public goods', 'Foundation reserve'] },
-                { id: 'p2p', name: 'P2P Foundation', percentage: 10, amount: 500000000000, color: '#06B6D4', icon: '/icons/tokenomics/Mask group (5).png', descriptions: ['P2P infrastructure', 'Decentralization fund'] }
-              ]} />
-            </div>
-
-            <div className="space-y-6">
-              {[
-                { label: 'Community & Ecosystem Fund', value: '20%', amount: '1T', color: '#10B981' },
-                { label: 'Launchpad & Presale', value: '30%', amount: '1.5T', color: '#3B82F6' },
-                { label: 'Airdrop & Marketing', value: '10%', amount: '500B', color: '#F59E0B' },
-                { label: 'Team & Contributors', value: '20%', amount: '1T', color: '#8B5CF6' },
-                { label: 'Commons Foundation', value: '10%', amount: '500B', color: '#6366F1' },
-                { label: 'P2P Foundation', value: '10%', amount: '500B', color: '#06B6D4' }
-              ].map((item, idx) => (
-                <div key={idx} className="flex items-center justify-between p-4 bg-slate-800/50 rounded-lg border border-slate-700">
-                  <div className="flex items-center gap-4 flex-1">
-                    <div className="w-4 h-4 rounded-full" style={{ backgroundColor: item.color }} />
-                    <div>
-                      <p className="font-bold text-white">{item.label}</p>
-                      <p className="text-xs text-slate-400">{item.amount}</p>
-                    </div>
-                  </div>
-                  <p className="font-bold text-amber-400 text-lg">{item.value}</p>
-                </div>
-              ))}
-            </div>
-          </div>
+          <TokenomicsChart data={[
+            { id: 'community', name: 'Community & Ecosystem', percentage: 20, amount: 1000000000000, color: '#10B981', icon: '/icons/tokenomics/Mask group.png', descriptions: ['Community governance', 'Ecosystem growth'] },
+            { id: 'launchpad', name: 'Launchpad & Presale', percentage: 30, amount: 1500000000000, color: '#3B82F6', icon: '/icons/tokenomics/Mask group (1).png', descriptions: ['IEO rounds', 'Early supporters'] },
+            { id: 'airdrop', name: 'Airdrop & Marketing', percentage: 10, amount: 500000000000, color: '#F59E0B', icon: '/icons/tokenomics/Mask group (2).png', descriptions: ['Marketing campaigns', 'Community airdrops'] },
+            { id: 'team', name: 'Team & Contributors', percentage: 20, amount: 1000000000000, color: '#8B5CF6', icon: '/icons/tokenomics/Mask group (3).png', descriptions: ['Core team vesting', 'Contributor rewards'] },
+            { id: 'commons', name: 'Commons Foundation', percentage: 10, amount: 500000000000, color: '#6366F1', icon: '/icons/tokenomics/Mask group (4).png', descriptions: ['Public goods', 'Foundation reserve'] },
+            { id: 'p2p', name: 'P2P Foundation', percentage: 10, amount: 500000000000, color: '#06B6D4', icon: '/icons/tokenomics/Mask group (5).png', descriptions: ['P2P infrastructure', 'Decentralization fund'] }
+          ]} />
         </div>
       </section>
 
