@@ -65,61 +65,36 @@ const faqData = [
   }
 ];
 
-// Library content
+// Library content with inline SVG icons
+const libraryIcons: Record<string, ReactNode> = {
+  whitepaper: <svg className="w-6 h-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.5}><path strokeLinecap="round" strokeLinejoin="round" d="M19.5 14.25v-2.625a3.375 3.375 0 00-3.375-3.375h-1.5A1.125 1.125 0 0113.5 7.125v-1.5a3.375 3.375 0 00-3.375-3.375H8.25m0 12.75h7.5m-7.5 3H12M10.5 2.25H5.625c-.621 0-1.125.504-1.125 1.125v17.25c0 .621.504 1.125 1.125 1.125h12.75c.621 0 1.125-.504 1.125-1.125V11.25a9 9 0 00-9-9z" /></svg>,
+  manifesto: <svg className="w-6 h-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.5}><path strokeLinecap="round" strokeLinejoin="round" d="M16.5 10.5V6.75a4.5 4.5 0 10-9 0v3.75m-.75 11.25h10.5a2.25 2.25 0 002.25-2.25v-6.75a2.25 2.25 0 00-2.25-2.25H6.75a2.25 2.25 0 00-2.25 2.25v6.75a2.25 2.25 0 002.25 2.25z" /></svg>,
+  book: <svg className="w-6 h-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.5}><path strokeLinecap="round" strokeLinejoin="round" d="M12 6.042A8.967 8.967 0 006 3.75c-1.052 0-2.062.18-3 .512v14.25A8.987 8.987 0 016 18c2.305 0 4.408.867 6 2.292m0-14.25a8.966 8.966 0 016-2.292c1.052 0 2.062.18 3 .512v14.25A8.987 8.987 0 0018 18a8.967 8.967 0 00-6 2.292m0-14.25v14.25" /></svg>,
+  pow: <svg className="w-6 h-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.5}><path strokeLinecap="round" strokeLinejoin="round" d="M3.75 13.5l10.5-11.25L12 10.5h8.25L9.75 21.75 12 13.5H3.75z" /></svg>
+};
+
 const libraryContent = [
-  {
-    title: "The Satoshi Whitepaper",
-    subtitle: "Genesis of Decentralization",
-    icon: "/icons/library/Background+Shadow.svg",
-    content: "The original Bitcoin whitepaper published in 2008. Read the text that changed the world and inspired all of what followed. A peer-to-peer electronic cash system that requires no trusted central authority. This foundational document outlines the cryptographic principles that enable trustless transactions in a decentralized network."
-  },
-  {
-    title: "Cypherpunk Manifesto",
-    subtitle: "Privacy in a Digital Age",
-    icon: "/icons/library/Background+Shadow-1.svg",
-    content: "The foundational philosophy that inspired Satoshi. Privacy is the power to selectively reveal oneself to the world. Cryptography is the tool for privacy in a transparent world. Understanding the cypherpunk movement is essential to grasping why Bitcoin matters and why financial freedom requires privacy."
-  },
-  {
-    title: "The Book of Satoshi",
-    subtitle: "Collected Writings",
-    icon: "/icons/library/Background+Shadow-2.svg",
-    content: "A compilation of Satoshi's posts, emails, and communications. These words offer guidance on the principles, development philosophy, and vision that shaped Bitcoin from inception. Through Satoshi's own words, we understand the intentions behind each design choice and the deeper vision of monetary freedom."
-  },
-  {
-    title: "Proof of Work Philosophy",
-    subtitle: "Energy as Truth",
-    icon: "/icons/library/Background+Shadow-3.svg",
-    content: "Understanding the deep connection between energy, work, and value. Why Proof of Work isn't wasteful but rather the most honest way to create trust in a trustless system. Energy expenditure becomes the immutable record of truth, replacing the need for trusted intermediaries."
-  }
+  { title: "The Satoshi Whitepaper", subtitle: "Genesis of Decentralization", iconKey: "whitepaper", content: "The original Bitcoin whitepaper published in 2008. Read the text that changed the world and inspired all of what followed. A peer-to-peer electronic cash system that requires no trusted central authority. This foundational document outlines the cryptographic principles that enable trustless transactions in a decentralized network." },
+  { title: "Cypherpunk Manifesto", subtitle: "Privacy in a Digital Age", iconKey: "manifesto", content: "The foundational philosophy that inspired Satoshi. Privacy is the power to selectively reveal oneself to the world. Cryptography is the tool for privacy in a transparent world. Understanding the cypherpunk movement is essential to grasping why Bitcoin matters and why financial freedom requires privacy." },
+  { title: "The Book of Satoshi", subtitle: "Collected Writings", iconKey: "book", content: "A compilation of Satoshi’s posts, emails, and communications. These words offer guidance on the principles, development philosophy, and vision that shaped Bitcoin from inception. Through Satoshi’s own words, we understand the intentions behind each design choice and the deeper vision of monetary freedom." },
+  { title: "Proof of Work Philosophy", subtitle: "Energy as Truth", iconKey: "pow", content: "Understanding the deep connection between energy, work, and value. Why Proof of Work isn’t wasteful but rather the most honest way to create trust in a trustless system. Energy expenditure becomes the immutable record of truth, replacing the need for trusted intermediaries." }
 ];
 
-// Satoshi Returns features
+// Satoshi Returns features with inline SVG icons
+const satoshiReturnsIcons: Record<string, ReactNode> = {
+  supply: <svg className="w-7 h-7" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.5}><path strokeLinecap="round" strokeLinejoin="round" d="M20.25 6.375c0 2.278-3.694 4.125-8.25 4.125S3.75 8.653 3.75 6.375m16.5 0c0-2.278-3.694-4.125-8.25-4.125S3.75 4.097 3.75 6.375m16.5 0v11.25c0 2.278-3.694 4.125-8.25 4.125s-8.25-1.847-8.25-4.125V6.375m16.5 0v3.75m-16.5-3.75v3.75m16.5 0v3.75C20.25 16.153 16.556 18 12 18s-8.25-1.847-8.25-4.125v-3.75m16.5 0c0 2.278-3.694 4.125-8.25 4.125s-8.25-1.847-8.25-4.125" /></svg>,
+  cex: <svg className="w-7 h-7" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.5}><path strokeLinecap="round" strokeLinejoin="round" d="M3 13.125C3 12.504 3.504 12 4.125 12h2.25c.621 0 1.125.504 1.125 1.125v6.75C7.5 20.496 6.996 21 6.375 21h-2.25A1.125 1.125 0 013 19.875v-6.75zM9.75 8.625c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125v11.25c0 .621-.504 1.125-1.125 1.125h-2.25a1.125 1.125 0 01-1.125-1.125V8.625zM16.5 4.125c0-.621.504-1.125 1.125-1.125h2.25C20.496 3 21 3.504 21 4.125v15.75c0 .621-.504 1.125-1.125 1.125h-2.25a1.125 1.125 0 01-1.125-1.125V4.125z" /></svg>,
+  philosophy: <svg className="w-7 h-7" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.5}><path strokeLinecap="round" strokeLinejoin="round" d="M12 18v-5.25m0 0a6.01 6.01 0 001.5-.189m-1.5.189a6.01 6.01 0 01-1.5-.189m3.75 7.478a12.06 12.06 0 01-4.5 0m3.75 2.383a14.406 14.406 0 01-3 0M14.25 18v-.192c0-.983.658-1.823 1.508-2.316a7.5 7.5 0 10-7.517 0c.85.493 1.509 1.333 1.509 2.316V18" /></svg>,
+  network: <svg className="w-7 h-7" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.5}><path strokeLinecap="round" strokeLinejoin="round" d="M12.75 3.03v.568c0 .334.148.65.405.864l1.068.89c.442.369.535 1.01.216 1.49l-.51.766a2.25 2.25 0 01-1.161.886l-.143.048a1.107 1.107 0 00-.57 1.664c.369.555.169 1.307-.427 1.605L9 13.125l.423 1.059a.956.956 0 01-1.652.928l-.679-.906a1.125 1.125 0 00-1.906.172L4.5 15.75l-.612.153M12.75 3.031a9 9 0 00-8.862 12.872M12.75 3.031a9 9 0 016.69 14.036m0 0l-.177-.529A2.25 2.25 0 0017.128 15H16.5l-.324-.324a1.453 1.453 0 00-2.328.377l-.036.073a1.586 1.586 0 01-.982.816l-.99.282c-.55.157-.894.702-.8 1.267l.073.438c.08.474.49.821.97.821.846 0 1.598.542 1.865 1.345l.215.643m5.276-3.67a9.012 9.012 0 01-5.276 3.67" /></svg>,
+  shield: <svg className="w-7 h-7" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.5}><path strokeLinecap="round" strokeLinejoin="round" d="M9 12.75L11.25 15 15 9.75m-3-7.036A11.959 11.959 0 013.598 6 11.99 11.99 0 003 9.749c0 5.592 3.824 10.29 9 11.623 5.176-1.332 9-6.03 9-11.622 0-1.31-.21-2.571-.598-3.751h-.152c-3.196 0-6.1-1.248-8.25-3.285z" /></svg>
+};
+
 const satoshiReturnsFeatures = [
-  {
-    title: "Fixed Total Supply",
-    description: "5 Trillion SATOSHI tokens, immutably capped by code. No inflation, no manipulation. True scarcity in a digital world.",
-    icon: "/icons/satoshi-returns/SR 01.png"
-  },
-  {
-    title: "CEX Listing",
-    description: "Available on major cryptocurrency exchanges. Bridge the gap between traditional markets and decentralized finance.",
-    icon: "/icons/satoshi-returns/SR 02.png"
-  },
-  {
-    title: "Philosophical Movement",
-    description: "More than a token—a cultural awakening honoring Satoshi's original vision of financial sovereignty and true decentralization.",
-    icon: "/icons/satoshi-returns/SR03.png"
-  },
-  {
-    title: "MBC Network",
-    description: "Integration with the global Mysterious Bitcoin Community network, expanding reach and utility across borders.",
-    icon: "/icons/satoshi-returns/SR 04.png"
-  },
-  {
-    title: "Anti-Rug Pull Architecture",
-    description: "Community-governed distribution with transparent, immutable smart contracts protecting holders from deception.",
-    icon: "/icons/satoshi-returns/SR05.png"
-  }
+  { title: "Fixed Total Supply", description: "5 Trillion SATOSHI tokens, immutably capped by code. No inflation, no manipulation. True scarcity in a digital world.", iconKey: "supply" },
+  { title: "CEX Listing", description: "Available on major cryptocurrency exchanges. Bridge the gap between traditional markets and decentralized finance.", iconKey: "cex" },
+  { title: "Philosophical Movement", description: "More than a token—a cultural awakening honoring Satoshi’s original vision of financial sovereignty and true decentralization.", iconKey: "philosophy" },
+  { title: "MBC Network", description: "Integration with the global Mysterious Bitcoin Community network, expanding reach and utility across borders.", iconKey: "network" },
+  { title: "Anti-Rug Pull Architecture", description: "Community-governed distribution with transparent, immutable smart contracts protecting holders from deception.", iconKey: "shield" }
 ];
 
 // Embrace cards
@@ -198,11 +173,38 @@ const IEOPopup = ({ isOpen, onClose }: { isOpen: boolean; onClose: () => void })
   );
 };
 
+// Component: Chronicle Modal
+const ChronicleModal = ({ card, onClose }: { card: typeof chronicleData[0] | null; onClose: () => void }) => {
+  if (!card) return null;
+  return (
+    <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/80 backdrop-blur-sm p-4" onClick={onClose}>
+      <div className="relative max-w-2xl w-full rounded-2xl overflow-hidden border border-slate-700 shadow-2xl shadow-amber-500/10" onClick={e => e.stopPropagation()}>
+        <div className="relative h-64 sm:h-80">
+          <img src={card.image} alt={card.title} className="w-full h-full object-cover" />
+          <div className="absolute inset-0 bg-gradient-to-t from-slate-900 via-slate-900/60 to-transparent" />
+          <button onClick={onClose} className="absolute top-4 right-4 bg-black/50 hover:bg-black/70 text-white rounded-full p-2 transition-colors">
+            <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" /></svg>
+          </button>
+          <div className="absolute bottom-4 left-6 right-6">
+            <p className="text-amber-400 text-sm font-bold mb-1">{card.year}</p>
+            <h3 className="text-3xl font-black text-white">{card.title}</h3>
+          </div>
+        </div>
+        <div className="bg-slate-900 p-6 sm:p-8">
+          <p className="text-amber-400/80 text-sm font-semibold uppercase tracking-wider mb-3">{card.subtitle}</p>
+          <p className="text-slate-300 text-lg leading-relaxed">{card.desc}</p>
+        </div>
+      </div>
+    </div>
+  );
+};
+
 // Component: Chronicle Carousel
 const ChronicleCarousel = () => {
   const scrollContainerRef = useRef<HTMLDivElement>(null);
   const [canScrollLeft, setCanScrollLeft] = useState(false);
   const [canScrollRight, setCanScrollRight] = useState(true);
+  const [selectedCard, setSelectedCard] = useState<typeof chronicleData[0] | null>(null);
 
   const handleScroll = () => {
     if (scrollContainerRef.current) {
@@ -259,7 +261,7 @@ const ChronicleCarousel = () => {
               }`}
               style={{ transitionDelay: `${idx * 50}ms` }}
             >
-              <div className="group relative h-96 rounded-xl overflow-hidden cursor-pointer">
+              <div className="group relative h-96 rounded-xl overflow-hidden cursor-pointer" onClick={() => setSelectedCard(card)}>
                 <img
                   src={card.image}
                   alt={card.title}
@@ -271,6 +273,9 @@ const ChronicleCarousel = () => {
                   <h3 className="text-2xl font-black mb-1">{card.title}</h3>
                   <p className="text-sm text-slate-300 mb-3">{card.subtitle}</p>
                   <p className="text-sm text-slate-400 line-clamp-2">{card.desc}</p>
+                </div>
+                <div className="absolute top-4 right-4 bg-amber-500/20 backdrop-blur-sm rounded-full p-2 opacity-0 group-hover:opacity-100 transition-opacity">
+                  <svg className="w-4 h-4 text-amber-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" /><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" /></svg>
                 </div>
               </div>
             </div>
@@ -288,6 +293,7 @@ const ChronicleCarousel = () => {
           </button>
         )}
       </div>
+      <ChronicleModal card={selectedCard} onClose={() => setSelectedCard(null)} />
     </div>
   );
 };
@@ -434,7 +440,7 @@ export default function Home() {
           loop
           className="absolute inset-0 w-full h-full object-cover"
         >
-          <source src="/uploads/Scroll_BG_NEW.mp4" type="video/mp4" />
+          <source src="/uploads/Header_BG.mp4" type="video/mp4" />
         </video>
 
         {/* Overlay */}
@@ -621,8 +627,8 @@ export default function Home() {
                     }`}
                     style={{ transitionDelay: `${idx * 100}ms` }}
                   >
-                    <div className="mb-6 h-16 w-16 rounded-lg bg-amber-400/10 flex items-center justify-center group-hover:bg-amber-400/20 transition-colors">
-                      <img src={feature.icon} alt={feature.title} className="w-8 h-8 object-contain" />
+                    <div className="mb-6 h-16 w-16 rounded-lg bg-amber-400/10 flex items-center justify-center group-hover:bg-amber-400/20 transition-colors text-amber-400">
+                      {satoshiReturnsIcons[feature.iconKey]}
                     </div>
                     <h3 className="text-xl font-black text-white mb-3">{feature.title}</h3>
                     <p className="text-slate-400 leading-relaxed">{feature.description}</p>
@@ -699,8 +705,8 @@ export default function Home() {
                 onClick={() => setSelectedBook(book)}
                 className="group relative p-6 rounded-xl border border-slate-700 hover:border-amber-400/50 bg-slate-800/30 hover:bg-slate-800/60 transition-all text-left"
               >
-                <div className="mb-4 h-12 w-12 rounded-lg bg-amber-400/10 flex items-center justify-center group-hover:bg-amber-400/20 transition-colors">
-                  <img src={book.icon} alt={book.title} className="w-6 h-6 object-contain" />
+                <div className="mb-4 h-12 w-12 rounded-lg bg-amber-400/10 flex items-center justify-center group-hover:bg-amber-400/20 transition-colors text-amber-400">
+                  {libraryIcons[book.iconKey]}
                 </div>
                 <h3 className="font-black text-white mb-2 group-hover:text-amber-400 transition-colors">{book.title}</h3>
                 <p className="text-sm text-amber-400">{book.subtitle}</p>
